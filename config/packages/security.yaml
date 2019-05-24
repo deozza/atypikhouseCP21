@@ -1,0 +1,21 @@
+security:
+  encoders:
+    App\Entity\User: bcrypt
+
+  providers:
+    user_provider:
+      id: App\Security\UserProvider
+
+  access_control:
+  firewalls:
+      dev:
+          pattern: ^/(_(profiler|wdt)|css|images|js)/
+          security: false
+      main:
+          pattern: ^/api
+          stateless: true
+          provider: user_provider
+          anonymous: ~
+          guard:
+              authenticators:
+                  - App\Security\Authenticator
