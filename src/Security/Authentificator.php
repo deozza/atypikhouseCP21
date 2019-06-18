@@ -3,7 +3,7 @@
 namespace App\Security;
 
 use App\Entity\ApiToken;
-use AppEntity\User;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 use Firebase\JWT\JWT;
 use Symfony\Component\Dotenv\Dotenv;
 
-class Authenticator extends AbstractGuardAuthenticator
+class Authentificator extends AbstractGuardAuthenticator
 {
 
     public function __construct(EntityManagerInterface $em)
