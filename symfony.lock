@@ -173,6 +173,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v3.0.0"
     },
+    "ocramius/package-versions": {
+        "version": "1.4.0"
+    },
     "ocramius/proxy-manager": {
         "version": "2.2.2"
     },

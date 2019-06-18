@@ -5,8 +5,6 @@ use App\Form\AuthentificatorType;
 use App\Entity\ApiToken;
 use App\Entity\Credentials;
 use App\Entity\User;
-use App\Repository\ApiTokenRepository;
-use App\Repository\UserRepository;
 use Firebase\JWT\JWT;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Dotenv\Dotenv;
@@ -25,7 +23,9 @@ use Deozza\PhilarmonyBundle\Service\ResponseMaker;
 class AuthentificatorController extends AbstractController
 {
   const INVALID_CREDENTIALS = 'Your crendentials are invalids';
-
+  private $em;
+  private $response;
+  private $serializer;
 
   public function __contruct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
   {
@@ -38,9 +38,9 @@ class AuthentificatorController extends AbstractController
   */
   public function authentificatorAction(Request $request, UserPasswordEncoderInterface $encoder)
   {
-    $crendentials = new Credentials();
+    $credentials = new Credentials();
     $postedCredentials = json_decode($request->getContent(), true);
-    $form = $this->createForm(AuthentificatorType::class, $crendentials);
+    $form = $this->createForm(AuthentificatorType::class, $credentials);
     $form->submit($postedCredentials);
     if (!$form->isValid())
     {
