@@ -26,10 +26,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    Deozza\PhilarmonyBundle\Controller\:
-      resource: '@DeozzaPhilarmonyBundle/Controller'
+    Deozza\PhilarmonyCoreBundle\Controller\:
+      resource: '@DeozzaPhilarmonyCoreBundle/Controller'
       tags: ['controller.service_arguments']
 
-    Deozza\PhilarmonyBundle\Repository\:
-      resource: '@DeozzaPhilarmonyBundle/Repository'
+    Deozza\PhilarmonyCoreBundle\Repository\:
+      resource: '@DeozzaPhilarmonyCoreBundle/Repository'
       tags: ['doctrine.service_entity']  

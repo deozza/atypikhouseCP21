@@ -9,8 +9,12 @@
         "symfony/dotenv": "4.2.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.2.*",
-        "symfony/security-bundle": "^4.2",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "firebase/php-jwt": "^5.0",
+        "deozza/philarmony-core-bundle": "2.0.*",
+        "deozza/response-maker-bundle": "^1.0",
+        "nelmio/cors-bundle": "^1.5",
+        "symfony/security-bundle": "4.2.*"
     },
     "config": {
         "preferred-install": {
@@ -58,9 +62,10 @@
         }
     },
     "require-dev": {
+        "deozza/api-tester-bundle": "^1.0",
+        "symfony/web-server-bundle": "4.2.*",
         "doctrine/doctrine-fixtures-bundle": "^3.1",
-        "fzaninotto/faker": "^1.8",
         "symfony/profiler-pack": "^1.0",
-        "symfony/web-server-bundle": "4.2.*"
+        "fzaninotto/faker": "^1.8"
     }
 }
