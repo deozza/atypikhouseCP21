@@ -17,60 +17,57 @@ use Deozza\PhilarmonyBundle\Service\ResponseMaker;
 
 
 /**
-* @Route("api/token")
-*/
-
+ * @Route("api/token")
+ */
 class AuthentificatorController extends AbstractController
 {
-  const INVALID_CREDENTIALS = 'Your crendentials are invalids';
-  private $em;
-  private $response;
-  private $serializer;
+    const INVALID_CREDENTIALS = 'Your crendentials are invalids';
 
-  public function __contruct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
-  {
-    $this->response = $responseMaker;
-    $this->serializer = $serializer;
-    $this->em = $em;
-  }
-  /**
-  *@Route("", name = "POST_Authentificator", methods = {"POST"})
-  */
-  public function authentificatorAction(Request $request, UserPasswordEncoderInterface $encoder)
-  {
-    $credentials = new Credentials();
-    $postedCredentials = json_decode($request->getContent(), true);
-    $form = $this->createForm(AuthentificatorType::class, $credentials);
-    $form->submit($postedCredentials);
-    if (!$form->isValid())
+    public function __construct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
     {
-        return $this->response->badRequest($this->serializer->convertFormToArray($form));
+        $this->response = $responseMaker;
+        $this->serializer = $serializer;
+        $this->em = $em;
     }
-    $repository = $this->em->getRepository(User::class);
-    $user = $repository->findByUsernameOrEmail($credentials->getLogin());
-    if (empty($user) || $user[0]->getActive() == false)
-    {
-      return $this->response->badRequest(self::INVALID_CREDENTIALS);
-    }
-    $user = $user[0];
-    $isPasswordValid = $encoder->isPasswordValid($user, $credentials->getPassword());
-    if (!$isPasswordValid)
-    {
-      $user->setLastFailedLogin(new \DateTime('now'));
-      $this->em->persist($user);
-      $this->em->flush();
-      return $this->response->badRequest(self::INVALID_CREDENTIALS);
-    }
-    $env = new Dotenv();
-    $env->load($this->getParameters('kernel.project_dir').'/.env');
-    $secret = getenv('APP_SECRET');
-    $token = ['username' => $user->getUsername(), 'exp' => date_create('+1 day')->format('U')];
-    $authToken = new ApiToken($user, JWT::encode($token, $secret));
-    $this->em->persist($authToken);
-    $user->setLastLogin(new \DateTime('now'));
-    $this->em->persist($user);
-    $this->em->flush();
-    return $this->response->created($authToken);
 
-  }
+    /**
+     *@Route("", name = "POST_Authentificator", methods = {"POST"})
+     */
+    public function authentificatorAction(Request $request, UserPasswordEncoderInterface $encoder)
+    {
+        $credentials = new Credentials();
+        $postedCredentials = json_decode($request->getContent(), true);
+        $form = $this->createForm(AuthentificatorType::class, $credentials);
+        $form->submit($postedCredentials);
+        if (!$form->isValid())
+        {
+            return $this->response->badRequest($this->serializer->convertFormToArray($form));
+        }
+        $repository = $this->em->getRepository(User::class);
+        $user = $repository->findByUsernameOrEmail($credentials->getLogin());
+        if (empty($user) || $user[0]->getActive() == false)
+        {
+            return $this->response->badRequest(self::INVALID_CREDENTIALS);
+        }
+        $user = $user[0];
+        $isPasswordValid = $encoder->isPasswordValid($user, $credentials->getPassword());
+        if (!$isPasswordValid)
+        {
+            $user->setLastFailedLogin(new \DateTime('now'));
+            $this->em->persist($user);
+            $this->em->flush();
+            return $this->response->badRequest(self::INVALID_CREDENTIALS);
+        }
+        $env = new Dotenv();
+        $env->load($this->getParameters('kernel.project_dir').'/.env');
+        $secret = getenv('APP_SECRET');
+        $token = ['username' => $user->getUsername(), 'exp' => date_create('+1 day')->format('U')];
+        $authToken = new ApiToken($user, JWT::encode($token, $secret));
+        $this->em->persist($authToken);
+        $user->setLastLogin(new \DateTime('now'));
+        $this->em->persist($user);
+        $this->em->flush();
+        return $this->response->created($authToken);
+
+    }
 }
