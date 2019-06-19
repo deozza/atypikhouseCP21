@@ -28,6 +28,7 @@ class AuthentificatorControllerTest extends TestAsserter
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'invalidEmail' , 'out' => 'postedInvalidEmail'] ],
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'invalidPassword' , 'out' => 'postedInvalidPassword'] ],
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'invalidLogin' , 'out' => 'postedInvalidLogin'] ],
+        ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'inactiveUser' , 'out' => 'postedInactiveUser'] ],
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'extraField' , 'out' => 'postedExtraField'] ],
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 400, 'in' => 'missingField' , 'out' => 'postedMissingField'] ],
 
