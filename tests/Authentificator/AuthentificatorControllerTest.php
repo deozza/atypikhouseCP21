@@ -35,6 +35,16 @@ class AuthentificatorControllerTest extends TestAsserter
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 201, 'in' => 'loginOK' , 'out' => 'postedLogin'] ],
         ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 201, 'in' => 'emailOK' , 'out' => 'postedEmail'] ],
 
+
+        ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000', 'status' => 405] ],
+        ["kind" => "unit", "test" => ['method'=> 'PUT'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000', 'status' => 405] ],
+        ["kind" => "unit", "test" => ['method'=> 'GET'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000', 'status' => 405] ],
+        ["kind" => "unit", "test" => ['method'=> 'DELETE'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000' , 'status' => 401] ],
+        ["kind" => "unit", "test" => ['method'=> 'DELETE'  , 'url' => 'api/token/00100000-0000-5000-a000-000000000000', 'token' => 'token_userActive', 'status' => 404] ],
+        ["kind" => "unit", "test" => ['method'=> 'DELETE'  , 'url' => 'api/token/0000-5000-a000-000000000000', 'token' => 'token_userActive', 'status' => 404] ],
+
+        ["kind" => "unit", "test" => ['method'=> 'DELETE'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000', 'token' => 'token_userActive', 'status' => 204] ],
+
       ];
   }
 }
