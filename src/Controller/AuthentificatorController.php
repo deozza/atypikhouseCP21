@@ -59,7 +59,7 @@ class AuthentificatorController extends AbstractController
             return $this->response->badRequest(self::INVALID_CREDENTIALS);
         }
         $env = new Dotenv();
-        $env->load($this->getParameters('kernel.project_dir').'/.env');
+        $env->load($this->getParameter('kernel.project_dir').'/.env');
         $secret = getenv('APP_SECRET');
         $token = ['username' => $user->getUsername(), 'exp' => date_create('+1 day')->format('U')];
         $authToken = new ApiToken($user, JWT::encode($token, $secret));
