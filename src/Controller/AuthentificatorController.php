@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Deozza\PhilarmonyBundle\Service\FormManager\FormErrorSerializer;
-use Deozza\PhilarmonyBundle\Service\ResponseMaker;
+use Deozza\ResponseMakerBundle\Service\ResponseMaker;
+use Deozza\ResponseMakerBundle\Service\FormErrorSerializer;
 
 
 /**
