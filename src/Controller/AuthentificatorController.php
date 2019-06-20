@@ -22,6 +22,7 @@ use Deozza\ResponseMakerBundle\Service\FormErrorSerializer;
 class AuthentificatorController extends AbstractController
 {
     const INVALID_CREDENTIALS = 'Your crendentials are invalids';
+    const NOT_FOUND = 'Resource not found';
 
     public function __construct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
     {
@@ -69,5 +70,36 @@ class AuthentificatorController extends AbstractController
         $this->em->flush();
         return $this->response->created($authToken);
 
+    }
+
+      /**
+      *@Route("/{uuid}",
+      *requirements={
+      *          "uuid" = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      *     },
+      * name = "DELETE_Token",
+      * methods = {"DELETE"})
+      */
+    public function disconnectAction(Request $request, $uuid)
+    {
+      if (empty($this->getUser()->getId()))
+      {
+        return $this->response->notAuthorized();
+      }
+      $repository = $this->em->getRepository(ApiToken::class);
+      $token = $repository->findOneByUuid($uuid);
+      if (empty($token))
+      {
+        return $this->response->notFound(self::NOT_FOUND);
+      }
+      $tokenSent = $request->headers->get('Authorization');
+      $tokenSent = substr($tokenSent, 7);
+      if ($tokenSent !== $token->getToken())
+      {
+        return $this->response->notFound(self::NOT_FOUND);
+      }
+      $this->em->remove($token);
+      $this->em->flush();
+      return $this->response->empty();
     }
 }

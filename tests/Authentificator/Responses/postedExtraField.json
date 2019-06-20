@@ -1,1 +1,1 @@
-{}
+{"error":{"errors":["This form should not contain extra fields."],"children":{"login":[],"password":[]}}}
