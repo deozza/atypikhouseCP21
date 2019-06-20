@@ -22,7 +22,7 @@ use Deozza\ResponseMakerBundle\Service\FormErrorSerializer;
 class AuthentificatorController extends AbstractController
 {
     const INVALID_CREDENTIALS = 'Your crendentials are invalids';
-    const NOT_FOUND = 'Ressource not found';
+    const NOT_FOUND = 'Resource not found';
 
     public function __construct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
     {

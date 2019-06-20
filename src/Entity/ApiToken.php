@@ -24,7 +24,6 @@ class ApiToken
     /**
     * @ORM\Column(type="uuid", unique=true)
     * @JMS\Accessor(getter="getUuidAsString")
-    * @JMS\Groups({"user_id", "entity_complete"})
     */
    protected $uuid;
 
