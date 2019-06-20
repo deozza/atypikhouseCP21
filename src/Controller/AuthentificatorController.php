@@ -72,9 +72,14 @@ class AuthentificatorController extends AbstractController
 
     }
 
-    /**
-     *@Route("/{uuid}", name = "DELETE_Token", methods = {"DELETE"})
-     */
+      /**
+      *@Route("/{uuid}",
+      *requirements={
+      *          "uuid" = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
+      *     },
+      * name = "DELETE_Token",
+      * methods = {"DELETE"})
+      */
     public function disconnectAction(Request $request, $uuid)
     {
       if (empty($this->getUser()->getId()))
@@ -89,7 +94,7 @@ class AuthentificatorController extends AbstractController
       }
       $tokenSent = $request->headers->get('Authorization');
       $tokenSent = substr($tokenSent, 7);
-      if ($tokenSent !== $token->getUuidAsString())
+      if ($tokenSent !== $token->getToken())
       {
         return $this->response->notFound(self::NOT_FOUND);
       }
