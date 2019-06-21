@@ -16,7 +16,6 @@ entities:
       - postal_code
       - country 
       - legal_id
-
     states:
       __default:
         methods:
@@ -39,11 +38,16 @@ entities:
             by:
               roles:
                 - ROLE_USER
-                - ROLE_ADMIN
-                
+                - ROLE_ADMIN                
       posted:
         methods:
           GET:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+          DELETE:
             properties:
               - title
               - description
@@ -59,14 +63,13 @@ entities:
               - postal_code
               - country 
               - legal_id
-              - image
             by:
               users:
                 - owner
               roles:
                 - ROLE_ADMIN
-        DELETE:
-          properties:
+          PATCH:
+            properties:
               - title
               - description
               - surface
@@ -80,62 +83,17 @@ entities:
               - address
               - postal_code
               - country 
-              - legal_id
-              - image
+              - legal_id            
             by:
               users:
                 - owner
               roles:
                 - ROLE_ADMIN
-        PATCH:
-          properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id
-              - image
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN
-
-        PUT:
-          properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id
-              - image
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN
-
       published:
         methods:
-          GET:
+          GET:            
+            by: all
+          DELETE:
             properties:
               - title
               - description
@@ -150,15 +108,14 @@ entities:
               - address
               - postal_code
               - country 
-              - legal_id
-              - image
+              - legal_id            
             by:
-              
+              users:
+                - owner
               roles:
                 - ROLE_ADMIN
-                - ROLE_USER
-        DELETE:
-          properties:
+          PATCH:
+            properties:
               - title
               - description
               - surface
@@ -172,70 +129,47 @@ entities:
               - address
               - postal_code
               - country 
-              - legal_id
-              - image
+              - legal_id           
             by:
               users:
                 - owner
               roles:
-                - ROLE_ADMIN
-        PATCH:
-          properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id
-              - image
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN
-
-        PUT:
-          properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id
-              - image
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN
-
-    
-
-              
-
-
+                - ROLE_ADMIN            
   view:
     properties:
       - estate
       - content
-      - rating
-  
+      - rating 
+    states:
+      __default:
+        methods:
+          POST:
+            properties:
+              - estate
+              - content
+              - rating
+            by:
+              roles:
+                - ROLE_USER
+      posted:
+        methods:
+          GET:
+            by: all
+          DELETE:              
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+          PATCH:
+            properties:
+              - content
+              - rating
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN               
   favorite:
     properties:
       - estate
@@ -251,6 +185,79 @@ entities:
       posted:
         methods:
           GET:
+            by: all              
+          DELETE:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN 
+  reservation:
+    properties:
+      - estate
+      - nb_people
+      - coming_at
+      - leaving_at
+      - total_price
+      - more
+    states:
+      __default:
+        methods:
+          POST:
+            properties:
+              - estate
+              - nb_people
+              - coming_at
+              - leaving_at
+              - total_price
+              - more
+            by:
+              roles:
+                - ROLE_USER 
+      posted:
+        methods:
+          GET:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN 
+          DELETE:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+          PATCH:
+            properties:
+              - nb_people
+              - coming_at
+              - leaving_at
+              - total_price
+              - more
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+
+  notification:
+    properties:
+      - notif_title
+      - content
+    states:
+      __default:
+        methods:
+          POST:
+            properties:
+              - notif_title
+              - content
+            by:
+              roles:
+                - ROLE_ADMIN
+      posted:
+        methods:
+          GET:
             by:
               users:
                 - owner
@@ -260,40 +267,62 @@ entities:
             by:
               users:
                 - owner
-              roles:
-                - ROLE_ADMIN
-          
-
-            
-      
-
-
-  reservation:
-    properties:
-      - estate
-      - nb_people
-      - coming_at
-      - leaving_at
-      - total_price
-      - more
-
-  notification:
-    properties:
-      - notif_title
-      - content
-
   message:
     properties:
       - user
       - content
       - seen
       - created_at
-  
+    states:
+      __default:
+        methods:
+          POST:
+            properties:
+              - user
+              - content
+              - seen
+              - created_at
+            by:
+              roles:
+                - ROLE_ADMIN
+                - ROLE_USER
+      posted:
+        methods:
+          GET:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN                
+          DELETE:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN               
   conversation:
     properties:
       - convers_title
       - message
       - participant
+    states:
+      __default:
+        methods:
+          GET:            
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+      published:
+        methods:
+          DELETE:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+                
 
 
 

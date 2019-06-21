@@ -138,14 +138,14 @@ properties:
     constraints:
       unique: false
       required: true
-      greaterThan: now
+      greaterThan: today
 
   leaving_at:
     type: datetime
     constraints: 
     unique: false
     required: true
-    greaterThan: entity.arrive_at
+    greaterThan: today
 
   total_price:
     type: int
@@ -192,7 +192,12 @@ properties:
       required: true
     
   participant:
-    type:
+    type: string
+    array: true
+    constraints:
+      required: true
+      unique: false
+      
 
   convers_title:
     type: string
