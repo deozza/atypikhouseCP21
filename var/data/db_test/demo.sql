@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 20 juin 2019 à 12:12
+-- Généré le :  jeu. 20 juin 2019 à 13:16
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `entity` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:uuid)',
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -86,18 +87,19 @@ CREATE TABLE IF NOT EXISTS `user` (
   `register_date` datetime NOT NULL,
   `active` tinyint(1) NOT NULL,
   `roles` json NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D649D17F50A6` (`uuid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `last_login`, `last_failed_login`, `register_date`, `active`, `roles`) VALUES
-(1, 'userAdmin', '$2y$13$7sio9Kx5bhMmGRaUmmxoh.NCwzzRLebuNFNAoWYNm82IEgkGyIuVS', 'userAdmin@gmail.com', NULL, NULL, '2019-06-20 12:11:29', 1, '[\"ROLE_ADMIN\"]'),
-(2, 'userInactive', '$2y$13$SteH5OhEnzF.qWnQjbu6GeKCIG4HfKzx78YtwcZyPpAQ/WYgx9Y9a', 'userInactive@gmail.com', NULL, NULL, '2019-06-20 12:11:30', 0, '[]'),
-(3, 'userForbidden', '$2y$13$PgLDPVASrcYNA8/CntldoOlT.xFIeoKs79gZz6kEBYH47Nzzlnk1G', 'userForbidden@gmail.com', NULL, NULL, '2019-06-20 12:11:30', 1, '[]'),
-(4, 'userActive', '$2y$13$uNrS7XxjjiUUtrc.UyO/zuEVt53RswVua6U/FZX6oYJFuf3HhuJLS', 'userActive@gmail.com', NULL, NULL, '2019-06-20 12:11:31', 1, '[]');
+INSERT INTO `user` (`id`, `uuid`, `username`, `password`, `email`, `last_login`, `last_failed_login`, `register_date`, `active`, `roles`) VALUES
+(1, '00010000-0000-5000-a000-000000000000', 'userAdmin', '$2y$13$hUlJZIKpMRrFfQE4HmPN5.bDqI1MLmHqjsgz3cjoYX3xNt/c85mgy', 'userAdmin@gmail.com', NULL, NULL, '2019-06-20 13:16:08', 1, '[\"ROLE_ADMIN\"]'),
+(2, '00020000-0000-5000-a000-000000000000', 'userInactive', '$2y$13$gis8s785f2OUDh37/EHknOjY8UXcPhWRBi0lxiAsH8lUDBTjjdWl.', 'userInactive@gmail.com', NULL, NULL, '2019-06-20 13:16:09', 0, '[]'),
+(3, '00030000-0000-5000-a000-000000000000', 'userForbidden', '$2y$13$dZgWUMOvp.tcy9NU0IsNHeWxpkhJ28IBQO.HqqySdfIUQvdlBxuVO', 'userForbidden@gmail.com', NULL, NULL, '2019-06-20 13:16:09', 1, '[]'),
+(4, '00040000-0000-5000-a000-000000000000', 'userActive', '$2y$13$i8NaAW3WJ8pLdNlr/FrV6eWiIAZRmvFqPV3lrp8M8pZ17/n0weG3u', 'userActive@gmail.com', NULL, NULL, '2019-06-20 13:16:10', 1, '[]');
 
 --
 -- Contraintes pour les tables déchargées

@@ -6,10 +6,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use JMS\Serializer\Annotation as JMS;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity("email")
  * @UniqueEntity("username")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User implements UserInterface
 {
@@ -18,14 +22,21 @@ class User implements UserInterface
     * @ORM\Id()
     * @ORM\GeneratedValue()
     * @ORM\Column(type="integer")
-    * @JMS\Groups({"user_id", "entity_complete"})
+    * @JMS\Exclude
     */
    private $id;
+
+   /**
+   * @ORM\Column(type="uuid", unique=true)
+   * @JMS\Accessor(getter="getUuidAsString")
+   * @JMS\Groups({"user_id", "user_complete"})
+   */
+  protected $uuid;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @JMS\Groups({"user_basic", "username", "entity_complete"})
+     * @JMS\Groups({"user_basic", "username", "user_complete"})
      */
     private $username;
     /**
@@ -49,32 +60,32 @@ class User implements UserInterface
      * @Assert\Email(
      *     message = "The email '{{ value }}' is not a valid email."
      * )
-     * @JMS\Groups({"user_basic"})
+     * @JMS\Exclude
      */
     private $email;
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @JMS\Groups({"user_advanced"})
+     * @JMS\Groups({"user_basic"})
      */
     private $lastLogin;
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @JMS\Groups({"user_advanced"})
+     * @JMS\Groups({"user_complete"})
      */
     private $lastFailedLogin;
     /**
      * @ORM\Column(type="datetime")
-     * @JMS\Groups({"user_advanced"})
+     * @JMS\Groups({"user_complete"})
      */
     private $registerDate;
     /**
      * @ORM\Column(type="boolean")
-     * @JMS\Groups({"user_advanced"})
+     * @JMS\Groups({"user_basic"})
      */
     private $active;
     /**
      * @ORM\Column(type="json")
-     * @JMS\Groups({"user_advanced"})
+     * @JMS\Groups({"user_complete"})
      */
     private $roles = [];
     /**
@@ -89,6 +100,33 @@ class User implements UserInterface
     {
         return $this->id;
     }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setupUuid()
+    {
+        $this->setUuid(Uuid::uuid4());
+        return $this;
+    }
+
+    public function setUuid($uuid)
+    {
+        $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function getUuidAsString()
+    {
+        return $this->uuid->toString();
+    }
+
     public function getUsername(): ?string
     {
         return $this->username;

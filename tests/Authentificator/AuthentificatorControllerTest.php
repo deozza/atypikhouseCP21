@@ -45,6 +45,13 @@ class AuthentificatorControllerTest extends TestAsserter
 
         ["kind" => "unit", "test" => ['method'=> 'DELETE'  , 'url' => 'api/token/00400000-0000-5000-a000-000000000000', 'token' => 'token_userActive', 'status' => 204] ],
 
+        ["kind" => "scenario",
+        "test" => [
+            ['method'=> 'POST'   , 'url' => 'api/token', 'status' => 201, 'in' => 'loginOK' , 'out' => 'postedLoginScenario'],
+            ['method'=> 'DELETE'  , 'url' => 'api/token/#uuid#', 'token' => '#token#', 'status' => 204],
+          ]
+        ]
+
       ];
   }
 }
