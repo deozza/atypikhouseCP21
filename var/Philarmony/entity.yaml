@@ -1,2 +1,305 @@
 entities:
+  estate:
+    properties:
+      - title
+      - description
+      - surface
+      - rooms
+      - price
+      - image
+      - utilities
+      - beds
+      - bath_room
+      - environment
+      - city
+      - address
+      - postal_code
+      - country 
+      - legal_id
+
+    states:
+      __default:
+        methods:
+          POST:
+            properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+            by:
+              roles:
+                - ROLE_USER
+                - ROLE_ADMIN
+                
+      posted:
+        methods:
+          GET:
+            properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+        DELETE:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+        PATCH:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+
+        PUT:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+
+      published:
+        methods:
+          GET:
+            properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              
+              roles:
+                - ROLE_ADMIN
+                - ROLE_USER
+        DELETE:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+        PATCH:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+
+        PUT:
+          properties:
+              - title
+              - description
+              - surface
+              - rooms
+              - price
+              - utilities
+              - beds
+              - bath_room
+              - environment
+              - city
+              - address
+              - postal_code
+              - country 
+              - legal_id
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+
+    
+
+              
+
+
+  view:
+    properties:
+      - estate
+      - content
+      - rating
+  
+  favorite:
+    properties:
+      - estate
+    states:
+      __dafault:
+        methods:
+          POST:
+            properties:
+              - estate
+            by:
+              roles:
+                - ROLE_USER
+      posted:
+        methods:
+          GET:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+          DELETE:
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
+          
+
+            
+      
+
+
+  reservation:
+    properties:
+      - estate
+      - nb_people
+      - coming_at
+      - leaving_at
+      - total_price
+      - more
+
+  notification:
+    properties:
+      - notif_title
+      - content
+
+  message:
+    properties:
+      - user
+      - content
+      - seen
+      - created_at
+  
+  conversation:
+    properties:
+      - convers_title
+      - message
+      - participant
+
+
+
+
+
+
+
+    
   
