@@ -15,7 +15,6 @@ use Deozza\ResponseMakerBundle\Service\FormErrorSerializer;
  */
 class UserController extends AbstractController
 {
-
     const FORBIDDEN_MESSAGE = "You are not allowed to access this resource";
 
     public function __construct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
@@ -73,8 +72,7 @@ class UserController extends AbstractController
         return $this->response->created([]);
 
     }
-
-
+    
     /**
      *@Route("user/current",
      * name = "patch_user_current",
@@ -85,7 +83,6 @@ class UserController extends AbstractController
         if(empty($this->getUser()->getId())) return $this->response->notAuthorized();
         return $this->response->ok([]);
     }
-
 
     /**
      *@Route("user/{uuid}",
@@ -101,7 +98,4 @@ class UserController extends AbstractController
         if(!in_array("ROLE_ADMIN", $this->getUser()->getRoles())) return $this->response->forbiddenAccess(self::FORBIDDEN_MESSAGE);
         return $this->response->ok([]);
     }
-
-
-
 }
