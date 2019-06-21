@@ -74,7 +74,7 @@ class AuthentificatorController extends AbstractController
 
       /**
       *@Route("/{uuid}",
-      *requirements={
+      * requirements={
       *          "uuid" = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
       *     },
       * name = "DELETE_Token",
