@@ -1,0 +1,4 @@
+{
+  "uuid": "@string@.catchAs(uuid)",
+  "token":"@string@.catchAs(token)"
+}
