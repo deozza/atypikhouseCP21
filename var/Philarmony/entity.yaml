@@ -47,6 +47,14 @@ entities:
                 - owner
               roles:
                 - ROLE_ADMIN
+          POST:
+            properties:
+              - image
+            by:
+              users:
+                - owner
+              roles:
+                - ROLE_ADMIN
           DELETE:
             properties:
               - title
@@ -160,16 +168,7 @@ entities:
               users:
                 - owner
               roles:
-                - ROLE_ADMIN
-          PATCH:
-            properties:
-              - content
-              - rating
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN               
+                - ROLE_ADMIN                        
   favorite:
     properties:
       - estate
@@ -284,7 +283,6 @@ entities:
               - created_at
             by:
               roles:
-                - ROLE_ADMIN
                 - ROLE_USER
       posted:
         methods:

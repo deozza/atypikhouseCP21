@@ -11,28 +11,31 @@ properties:
     type: string
     constraints:
       unique: false
-      required: false     
+      required: false
+      length.min: 20
+      length.max: 255
+
 
       
   surface:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
   rooms:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
   price:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
   image:
@@ -55,7 +58,7 @@ properties:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
 
@@ -63,7 +66,7 @@ properties:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
   environment:
@@ -71,7 +74,7 @@ properties:
     array: true
     constraints:
       unique: false
-      required: false
+      required: true
 
   city:
     type: string
@@ -83,19 +86,19 @@ properties:
     type: string
     constraints:
       unique: false
-      required: false 
+      required: true 
 
   postal_code:
     type: string
     constraints:
       unique: false
-      required: false 
+      required: true 
 
   country:
     type: string
     constraints:
       unique: false
-      required: false 
+      required: true 
 
   legal_id:
     type: string
@@ -107,7 +110,7 @@ properties:
     type: entity.estate
     array: true
     constraints:
-      unique: true
+      unique: false
       required: true
 
 
@@ -124,13 +127,14 @@ properties:
       unique: false
       required: false
       greaterThan: 0 
+      lesserThanOrEqual: 10
 
   
   nb_people:
     type: int
     constraints:
       unique: false
-      required: false
+      required: true
       greaterThan: 0
 
   coming_at:
@@ -161,10 +165,7 @@ properties:
   
   content:
     type: string
-    constraints:
-      unique: false
-      required: false
-  
+      
   user:
     type: entity.user
     constraints:
@@ -176,16 +177,18 @@ properties:
      constraints:
       unique: false
       required: false
+      automatic: date.now
      
   created_at:
     type: datetime
     constraints:
       unique: false
       required: true
+      automatic: date.now
       
 
   message:
-    type: entity.message
+    type: embedded.message
     array: true
     constraints:
       unique: true
@@ -202,7 +205,7 @@ properties:
   convers_title:
     type: string
     constraints:
-      unique: false
+      unique: true
       required: true
       length.min: 20
       length.max: 255 
