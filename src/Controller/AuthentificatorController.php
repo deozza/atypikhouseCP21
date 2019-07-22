@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Form\AuthentificatorType;
+use App\Form\auth\AuthentificatorType;
 use App\Entity\ApiToken;
 use App\Entity\Credentials;
 use App\Entity\User;
@@ -13,7 +13,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Deozza\ResponseMakerBundle\Service\ResponseMaker;
-use Deozza\ResponseMakerBundle\Service\FormErrorSerializer;
 
 
 /**
@@ -24,10 +23,9 @@ class AuthentificatorController extends AbstractController
     const INVALID_CREDENTIALS = 'Your crendentials are invalids';
     const NOT_FOUND = 'Resource not found';
 
-    public function __construct(ResponseMaker $responseMaker, FormErrorSerializer $serializer, EntityManagerInterface $em)
+    public function __construct(ResponseMaker $responseMaker,EntityManagerInterface $em)
     {
         $this->response = $responseMaker;
-        $this->serializer = $serializer;
         $this->em = $em;
     }
 
@@ -42,7 +40,7 @@ class AuthentificatorController extends AbstractController
         $form->submit($postedCredentials);
         if (!$form->isValid())
         {
-            return $this->response->badRequest($this->serializer->convertFormToArray($form));
+            return $this->response->badForm($form);
         }
         $repository = $this->em->getRepository(User::class);
         $user = $repository->findByUsernameOrEmail($credentials->getLogin());
