@@ -47,7 +47,6 @@ entities:
                 - owner
               roles:
                 - ROLE_ADMIN
-<<<<<<< HEAD
           POST:
             properties:
               - image
@@ -56,16 +55,6 @@ entities:
                 - owner
               roles:
                 - ROLE_ADMIN
-=======
-          # POST:
-          #   properties:
-          #     - image
-          #   by:
-          #     users:
-          #       - owner
-          #     roles:
-          #       - ROLE_ADMIN
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
           DELETE:
             properties:
               - title
@@ -179,20 +168,8 @@ entities:
               users:
                 - owner
               roles:
-<<<<<<< HEAD
-                - ROLE_ADMIN                        
-=======
                 - ROLE_ADMIN
-          PATCH:                #
-            properties:         #
-              - content         #
-              - rating          #
-            by:                 # No patch ?
-              users:            #
-                - owner         #
-              roles:            #
-                - ROLE_ADMIN    #
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+          
   favorite:
     properties:
       - estate
@@ -208,7 +185,7 @@ entities:
       posted:
         methods:
           GET:
-            by: all    #owner only ?
+            by: owner    #owner only ?
           DELETE:
             by:
               users:
@@ -307,10 +284,6 @@ entities:
               - created_at
             by:
               roles:
-<<<<<<< HEAD
-=======
-                - ROLE_ADMIN      # ROLE_ADMIN is already ROLE_USER
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
                 - ROLE_USER
       posted:
         methods:

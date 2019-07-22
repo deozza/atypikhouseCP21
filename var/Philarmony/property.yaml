@@ -12,45 +12,29 @@ properties:
     constraints:
       unique: false
       required: false
-<<<<<<< HEAD
       length.min: 20
       length.max: 255
-
-=======
       # length constraint ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
 
   surface:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
   rooms:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
   price:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
   image:
@@ -73,11 +57,7 @@ properties:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
 
@@ -85,11 +65,7 @@ properties:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
   environment:
@@ -103,37 +79,25 @@ properties:
     type: string
     constraints:
       unique: false
-      required: false # true ?
+      required: true # true ?
 
   address:
     type: string
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true 
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
 
   postal_code:
     type: string
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true 
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
 
   country:
     type: string
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true 
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
 
   legal_id:
     type: string
@@ -153,7 +117,7 @@ properties:
   content:
     type: string
     constraints:
-      unique: true # false ?
+      unique: false # false ?
       required: true
       
   rating:
@@ -161,24 +125,16 @@ properties:
     constraints:
       unique: false
       required: false
-<<<<<<< HEAD
-      greaterThan: 0 
-      lesserThanOrEqual: 10
-=======
       greaterThan: 0
-      # lesserThanOrEqual constraint ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      lesserThanOrEqual: 10
+       
 
   
   nb_people:
     type: int
     constraints:
       unique: false
-<<<<<<< HEAD
-      required: true
-=======
-      required: false # true ?
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      required: true # true ?
       greaterThan: 0
 
   coming_at:
@@ -207,18 +163,10 @@ properties:
       unique: false
       required: false
   
-<<<<<<< HEAD
-  content:
-    type: string
-      
-=======
   content:            #
     type: string      #
-    constraints:      # no need
-      unique: false   #
-      required: false #
+    
   
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
   user:
     type: entity.user
     constraints:
@@ -230,30 +178,18 @@ properties:
      constraints:
       unique: false
       required: false
-<<<<<<< HEAD
-      automatic: date.now
-=======
-      # automatic: false
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+      automatic: false
      
   created_at:
     type: datetime
     constraints:
       unique: false
       required: true
-<<<<<<< HEAD
       automatic: date.now
       
 
   message:
-    type: embedded.message
-=======
-      # automatic: date.now
-      
-
-  message:
-    type: entity.message    # embedded.message
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
+    type: embedded.message    # embedded.message
     array: true
     constraints:
       unique: true
@@ -267,23 +203,6 @@ properties:
       unique: false
       
 
-<<<<<<< HEAD
-  convers_title:
-    type: string
-    constraints:
-      unique: true
-      required: true
-      length.min: 20
-      length.max: 255 
-  
-  notif_title:
-    type: string
-    constraints:
-      unique: false
-      required: true
-      length.min: 20
-      length.max: 255 
-=======
   convers_title:                              #
     type: string                              #
     constraints:                              #
@@ -299,7 +218,6 @@ properties:
       required: true                          #
       length.min: 20                          #
       length.max: 255                         #
->>>>>>> 6329f3b772cffa549d53f41b6f0fd9fa003f88bf
 
 
 
@@ -307,3 +225,4 @@ properties:
 
 
 
+s
