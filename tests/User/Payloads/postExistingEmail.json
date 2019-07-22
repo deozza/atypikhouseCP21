@@ -1,6 +1,8 @@
 {
   "username": "newUserActive",
   "email": "userActive@gmail.com",
-  "password": "newUserActive",
-  "validatePassword": "newUserActive"
+  "password": {
+    "first": "newUserActive",
+    "second": "newUserActive"
+  }
 }

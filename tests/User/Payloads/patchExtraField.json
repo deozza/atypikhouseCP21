@@ -1,5 +1,5 @@
 {
   "username": "UserActivePatched",
-  "password": "userActive",
+  "plainPassword": "userActive",
   "extraField": "tooManyFields"
 }
