@@ -1,7 +1,5 @@
 <?php
 
-use JMS\SerializerBundle\JMSSerializerBundle;
-
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle::class => ['all' => true],
@@ -10,12 +8,11 @@ return [
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
-    Deozza\ApiTesterBundle\DeozzaApiTesterBundle::class => ['all' => true],
-    Deozza\PhilarmonyCoreBundle\DeozzaPhilarmonyCoreBundle::class=> ['all' => true],
-    Deozza\ResponseMakerBundle\DeozzaResponseMakerBundle::class=> ['all' => true],
+    Deozza\PhilarmonyCoreBundle\DeozzaPhilarmonyCoreBundle::class => ['all' => true],
+    Deozza\ResponseMakerBundle\DeozzaResponseMakerBundle::class => ['all' => true],
     Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
     Nelmio\CorsBundle\NelmioCorsBundle::class => ['all' => true],
     JMS\SerializerBundle\JMSSerializerBundle::class => ['all' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
-
+    Deozza\PhilarmonyApiTesterBundle\DeozzaPhilarmonyApiTesterBundle::class => ['dev' => true, 'test' => true],
 ];

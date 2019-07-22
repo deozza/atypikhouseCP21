@@ -1,12 +1,16 @@
 <?php
 namespace App\Tests\Authentificator;
-use Deozza\ApiTesterBundle\Service\TestAsserter;
+use Deozza\PhilarmonyApiTesterBundle\Service\TestAsserter;
 
 class AuthentificatorControllerTest extends TestAsserter
 {
+  const DBPATH = 'D:\F2I/Atypik_House/atypikhouseCP21/var/data/db_test/demo.sql';
+  //const DBPATH = .__DIR__."/../../var/data/db_test/demo.sql";
+
   public function setUp()
   {
-      parent::setUp();
+    parent::setTestDatabasePath(self::DBPATH);
+    parent::setUp();
   }
 
   /**
