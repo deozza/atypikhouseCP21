@@ -162,9 +162,6 @@ properties:
     constraints:
       unique: false
       required: false
-  
-  content:            #
-    type: string      #
     
   
   user:
@@ -218,11 +215,3 @@ properties:
       required: true                          #
       length.min: 20                          #
       length.max: 255                         #
-
-
-
-      
-
-
-
-s
