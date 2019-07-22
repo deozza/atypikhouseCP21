@@ -56,9 +56,7 @@ class UserControllerTest extends TestAsserter
       ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchMissingDotEmailAdmin' , 'out' => 'patchedMissingDotEmailAdmin' ] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchMissingAtEmailAdmin'  , 'out' => 'patchedMissingAtEmailAdmin'  ] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchExistingLoginAdmin'   , 'out' => 'patchedExistingLoginAdmin'   ] ],
-      ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchInvalidPasswordAdmin' , 'out' => 'patchedInvalidPasswordAdmin' ] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchExtraFieldAdmin'      , 'out' => 'patchedExtraFieldAdmin'      ] ],
-      ["kind" => "unit", "test" => ['method'=> 'PATCH'   , 'url' => 'api/user/00400000-0000-5000-a000-000000000000' , 'status' => 400, 'in' => 'patchMissingFieldAdmin'    , 'out' => 'patchedMissingFieldAdmin'    ] ],
 
       ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/current', 'token' => 'token_userActive' , 'status' => 200                                , 'out' => 'getCurrentUserOk'    ] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/current', 'token' => 'token_userActive' , 'status' => 200, 'in' => 'patchCurrentUserOk'  , 'out' => 'patchedCurrentUserOk'] ],
