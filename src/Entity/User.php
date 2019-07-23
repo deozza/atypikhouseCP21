@@ -19,31 +19,33 @@ class User implements UserInterface
 {
 
     /**
-    * @ORM\Id()
-    * @ORM\GeneratedValue()
-    * @ORM\Column(type="integer")
-    * @JMS\Exclude
-    */
-   private $id;
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     * @JMS\Exclude
+     */
+    private $id;
 
-   /**
-   * @ORM\Column(type="uuid", unique=true)
-   * @JMS\Accessor(getter="getUuidAsString")
-   * @JMS\Groups({"user_id", "user_complete"})
-   */
-  protected $uuid;
+    /**
+     * @ORM\Column(type="uuid", unique=true)
+     * @JMS\Accessor(getter="getUuidAsString")
+     * @JMS\Groups({"user_id", "user_complete"})
+     */
+    protected $uuid;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @JMS\Groups({"user_basic", "username", "user_complete"})
+     * @JMS\Groups({"user_basic", "user_username", "user_complete"})
      */
     private $username;
+
     /**
      * @Assert\Type("string")
      * @JMS\Exclude
      */
     private $plainPassword;
+
     /**
      * @Assert\Type("string")
      * @JMS\Exclude
@@ -54,40 +56,44 @@ class User implements UserInterface
      * @JMS\Exclude
      */
     private $password;
+
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email."
-     * )
-     * @JMS\Exclude
+     * @JMS\Groups({"user_basic", "user_email", "user_complete"})
      */
     private $email;
+
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @JMS\Groups({"user_basic"})
+     * @JMS\Groups({"user_basic", "user_complete"})
      */
     private $lastLogin;
+
     /**
      * @ORM\Column(type="datetime", nullable=true)
      * @JMS\Groups({"user_complete"})
      */
     private $lastFailedLogin;
+
     /**
      * @ORM\Column(type="datetime")
-     * @JMS\Groups({"user_complete"})
+     * @JMS\Groups({"user_basic","user_complete"})
      */
     private $registerDate;
+
     /**
      * @ORM\Column(type="boolean")
-     * @JMS\Groups({"user_basic"})
+     * @JMS\Groups({"user_complete"})
      */
     private $active;
+
     /**
      * @ORM\Column(type="json")
      * @JMS\Groups({"user_complete"})
      */
     private $roles = [];
+
     /**
      * User constructor.
      */

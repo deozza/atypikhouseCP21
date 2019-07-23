@@ -1,0 +1,9 @@
+{
+  "username": "newUserActive",
+  "email": "newUserActive@gmail.com",
+  "password": {
+    "first": "newUserActive",
+    "second": "newUserActive"
+  },
+  "extraField": "tooManyFields"
+}

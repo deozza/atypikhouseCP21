@@ -11,9 +11,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/yaml": "4.2.*",
         "firebase/php-jwt": "^5.0",
-        "deozza/philarmony-core-bundle": "2.0.*",
-        "deozza/response-maker-bundle": "^1.0",
-        "nelmio/cors-bundle": "^1.5",
+        "deozza/philarmony-core-bundle": "^3.0",
         "symfony/security-bundle": "4.2.*"
     },
     "config": {
@@ -62,10 +60,10 @@
         }
     },
     "require-dev": {
-        "deozza/api-tester-bundle": "^1.1",
-        "symfony/web-server-bundle": "4.2.*",
+        "deozza/philarmony-api-tester-bundle": "^3.0",
         "doctrine/doctrine-fixtures-bundle": "^3.1",
+        "fzaninotto/faker": "^1.8",
         "symfony/profiler-pack": "^1.0",
-        "fzaninotto/faker": "^1.8"
+        "symfony/web-server-bundle": "4.2.*"
     }
 }
