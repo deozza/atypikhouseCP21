@@ -4,37 +4,37 @@ properties:
     constraints:
       unique: true
       required: true
-      length.min: 20
-      length.max: 255   
+      lengthMin: 20
+      lengthMax: 255   
 
   description:
     type: string
     constraints:
       unique: false
       required: false
-      length.min: 20
-      length.max: 255
-      # length constraint ?
+      lengthMin: 20
+      lengthMax: 255
+      
 
   surface:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
   rooms:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
   price:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
   image:
@@ -57,7 +57,7 @@ properties:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
 
@@ -65,7 +65,7 @@ properties:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
   environment:
@@ -79,25 +79,25 @@ properties:
     type: string
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
 
   address:
     type: string
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
 
   postal_code:
     type: string
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
 
   country:
     type: string
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
 
   legal_id:
     type: string
@@ -117,7 +117,7 @@ properties:
   content:
     type: string
     constraints:
-      unique: false # false ?
+      unique: false 
       required: true
       
   rating:
@@ -134,7 +134,7 @@ properties:
     type: int
     constraints:
       unique: false
-      required: true # true ?
+      required: true 
       greaterThan: 0
 
   coming_at:
@@ -186,7 +186,7 @@ properties:
       
 
   message:
-    type: embedded.message    # embedded.message
+    type: embedded.message    
     array: true
     constraints:
       unique: true
@@ -200,18 +200,18 @@ properties:
       unique: false
       
 
-  convers_title:                              #
-    type: string                              #
-    constraints:                              #
-      unique: false                           #
-      required: true                          #
-      length.min: 20                          #
-      length.max: 255                         #
-                                              #       could be unified as title property
-  notif_title:                                #
-    type: string                              #
-    constraints:                              #
-      unique: false                           #
-      required: true                          #
-      length.min: 20                          #
-      length.max: 255                         #
+  convers_title:                              
+    type: string                              
+    constraints:                              
+      unique: false                           
+      required: true                          
+      lengthMin: 20                          
+      lengthMax: 255                         
+                                                     
+  notif_title:                                
+    type: string                              
+    constraints:                              
+      unique: false                           
+      required: true                          
+      lengthMin: 20                          
+      lengthMax: 255                         
