@@ -1,1 +1,1 @@
-{"error":{"children":{"username":[],"email":{"errors":["The email \"\"newUserActive.com\"\" is not a valid email."]},"password":{"children":{"first":[],"second":[]}}}}}
+{"error":{"children":{"username":[],"email":{"errors":["This value is not a valid email address."]},"password":{"children":{"first":[],"second":[]}}}}}
