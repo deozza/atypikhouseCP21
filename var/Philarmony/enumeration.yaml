@@ -1,2 +1,3 @@
 enumerations:
-  - utilities:['heater', 'microwave']
+  utilities: ['Télévision par câble', 'eau chaude', 'chauffage', 'microonde', 'Wi-Fi']
+  environment: ['restaurants','parking','dancing','salle sport']

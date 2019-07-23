@@ -138,18 +138,18 @@ properties:
       greaterThan: 0
 
   coming_at:
-    type: datetime
+    type: date
     constraints:
       unique: false
       required: true
       greaterThan: today
 
   leaving_at:
-    type: datetime
+    type: date
     constraints: 
-    unique: false
-    required: true
-    greaterThan: today
+      unique: false
+      required: true
+      greaterThan: today
 
   total_price:
     type: int
@@ -178,7 +178,7 @@ properties:
       automatic: false
      
   created_at:
-    type: datetime
+    type: date
     constraints:
       unique: false
       required: true
