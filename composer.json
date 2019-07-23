@@ -11,9 +11,7 @@
         "symfony/framework-bundle": "4.2.*",
         "symfony/yaml": "4.2.*",
         "firebase/php-jwt": "^5.0",
-        "deozza/philarmony-core-bundle": "2.0.*",
-        "deozza/response-maker-bundle": "^1.0",
-        "nelmio/cors-bundle": "^1.5",
+        "deozza/philarmony-core-bundle": "^3.0",
         "symfony/security-bundle": "4.2.*"
     },
     "config": {
