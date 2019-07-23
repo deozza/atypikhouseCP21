@@ -1,1 +1,19 @@
-{"error":{"children":{"username":[],"email":{"errors":["The email '\"userActivePatched@gmailcom\"' is not a valid email."]},"newPassword":{"children":{"first":[],"second":[]}},"plainPassword":[]}}}
+{
+  "error":{
+    "children":{
+      "username":[],
+      "email":{
+        "errors":[
+          "This value is not a valid email address."
+        ]
+      },
+      "newPassword":{
+        "children":{
+          "first":[],
+          "second":[]
+        }
+      },
+      "plainPassword":[]
+    }
+  }
+}

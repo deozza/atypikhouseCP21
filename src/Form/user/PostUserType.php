@@ -25,7 +25,6 @@ class PostUserType extends AbstractType
                 "constraints"=>[
                     new Assert\Email([
                         "checkMX"=>true,
-                        "message" => 'The email "{{ value }}" is not a valid email.'
                     ]),
                     new Assert\NotBlank()
                 ]
