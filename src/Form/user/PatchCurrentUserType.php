@@ -30,7 +30,11 @@ class PatchCurrentUserType extends AbstractType
                 'first_options' => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password']
             ])
-            ->add('plainPassword')
+            ->add('plainPassword', TextType::class, [
+                "constraints"=>[
+                    new Assert\NotBlank()
+                ]
+            ])
         ;
     }
 

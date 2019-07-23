@@ -16,19 +16,27 @@ class PostUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $option)
     {
-        $builder->add('username')
+        $builder->add('username', TextType::class, [
+                "constraints"=>[
+                    new Assert\NotBlank()
+                ]
+            ])
             ->add('email', TextType::class, [
                 "constraints"=>[
                     new Assert\Email([
                         "checkMX"=>true,
                         "message" => 'The email "{{ value }}" is not a valid email.'
-                    ])
+                    ]),
+                    new Assert\NotBlank()
                 ]
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password']
+                'second_options' => ['label' => 'Repeat Password'],
+                "constraints"=>[
+                    new Assert\NotBlank()
+                ]
             ]);
     }
 
