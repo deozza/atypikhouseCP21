@@ -174,7 +174,7 @@ entities:
     properties:
       - estate
     states:
-      __dafault:
+      __default:
         methods:
           POST:
             properties:
@@ -185,7 +185,9 @@ entities:
       posted:
         methods:
           GET:
-            by: owner    #owner only ?
+            by:
+              users: 
+                - owner    #owner only ?
           DELETE:
             by:
               users:
