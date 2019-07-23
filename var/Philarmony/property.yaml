@@ -165,13 +165,13 @@ properties:
     
   
   user:
-    type: entity.user
+    type: string
     constraints:
       unique: false
       required: false
  
   seen:
-     type: boolean
+     type: string
      constraints:
       unique: false
       required: false
@@ -186,7 +186,7 @@ properties:
       
 
   message:
-    type: embedded.message    
+    type: string    
     array: true
     constraints:
       unique: true
