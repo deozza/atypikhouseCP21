@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\password;
+namespace App\Form\user;
 
 use App\Entity\ActivateUser;
 use Symfony\Component\Form\AbstractType;
