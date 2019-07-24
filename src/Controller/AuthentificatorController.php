@@ -101,3 +101,4 @@ class AuthentificatorController extends AbstractController
       return $this->response->empty();
     }
 }
+
