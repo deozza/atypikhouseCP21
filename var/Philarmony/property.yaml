@@ -1,1 +1,214 @@
 properties:
+  title:
+    type: string
+    constraints:
+      unique: true
+      required: true
+      lengthMin: 20
+      lengthMax: 255   
+
+  description:
+    type: string
+    constraints:
+      unique: false
+      required: false
+      lengthMin: 20
+      lengthMax: 255
+      
+
+  surface:
+    type: int
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+  rooms:
+    type: int
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+  price:
+    type: float
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+  image:
+    type: file
+    array: true
+    constraints:
+      unique: false
+      required: false
+      mime: ['image/jpg', 'image/png']
+
+
+  utilities:
+    type: enumeration.utilities
+    array: true
+    constraints:
+      unique: false
+      required: false
+
+  beds:
+    type: int
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+
+  bath_room:
+    type: int
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+  environment:
+    type: enumeration.environment
+    array: true
+    constraints:
+      unique: false
+      required: true
+
+  city:
+    type: string
+    constraints:
+      unique: false
+      required: true
+      lengthMin: 1
+
+  address:
+    type: string
+    constraints:
+      unique: false
+      required: true
+      lengthMin: 1
+
+  postal_code:
+    type: string
+    constraints:
+      unique: false
+      required: true 
+      lengthMin: 1
+
+  country:
+    type: string
+    constraints:
+      unique: false
+      required: true 
+      lengthMin: 1
+
+  legal_id:
+    type: string
+    constraints:
+      unique: true
+      required: false
+      lengthMin: 1
+
+  estate:
+    type: entity.estate
+    constraints:
+      unique: false
+      required: true
+
+  content:
+    type: string
+    constraints:
+      unique: false 
+      required: true
+      
+  rating:
+    type: int
+    constraints:
+      unique: false
+      required: false
+      greaterThanOrEqual: 0
+      lesserThanOrEqual: 10
+
+  
+  nb_people:
+    type: int
+    constraints:
+      unique: false
+      required: true 
+      greaterThan: 0
+
+  coming_at:
+    type: date
+    constraints:
+      unique: false
+      required: true
+
+  leaving_at:
+    type: date
+    constraints: 
+      unique: false
+      required: true
+
+  total_price:
+    type: float
+    constraints:
+      unique: false
+      required: true
+      
+  more:
+    type: string
+    constraints:
+      unique: false
+      required: false
+      lengthMax: 255
+  
+  user:
+    type: string
+    constraints:
+      unique: false
+      required: true
+ 
+  seen:
+     type: enumeration.boolean
+     constraints:
+      unique: false
+      required: false
+      automatic: false
+     
+  created_at:
+    type: date
+    constraints:
+      unique: false
+      required: true
+
+  message:
+    type: embedded.message
+    array: true
+    constraints:
+      unique: false
+      required: true
+    
+  participant:
+    type: string
+    array: true
+    constraints:
+      required: true
+      unique: false
+      
+
+  convers_title:                              
+    type: string                              
+    constraints:                              
+      unique: false                           
+      required: true                          
+      lengthMin: 20                          
+      lengthMax: 255                         
+                                                     
+  notif_title:                                
+    type: string                              
+    constraints:                              
+      unique: false                           
+      required: true                          
+      lengthMin: 20                          
+      lengthMax: 255                         
