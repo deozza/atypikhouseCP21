@@ -50,7 +50,7 @@ class Authentificator extends AbstractGuardAuthenticator
             $env->load(__DIR__."/../../.env");
             $secret = getenv("APP_SECRET");
             $data = JWT::decode($credentials, $secret, ["HS256"]);
-            $username = $data['username'];
+            $username = $data->username;
             $user = $this->em->getRepository(User::class)->findOneByUsername($username);
             if(!$this->em->getRepository(ApiToken::class)->findOneByUser($user))
             {

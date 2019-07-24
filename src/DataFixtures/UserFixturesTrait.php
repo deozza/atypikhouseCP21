@@ -29,6 +29,8 @@ trait UserFixturesTrait
     $encoded = $this->encoder->encodePassword($user, $userName);
     $user->setPassword($encoded);
     $this->manager->persist($user);
+    $user->setUuid("000".$i."0000-0000-5000-a000-000000000000");
+    $this->manager->persist($user);
 
     $this->createToken($user, $i);
 
