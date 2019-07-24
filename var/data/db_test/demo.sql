@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 22 juil. 2019 à 15:14
+-- Généré le :  mer. 24 juil. 2019 à 10:39
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `last_login` datetime DEFAULT NULL,
   `last_failed_login` datetime DEFAULT NULL,
   `register_date` datetime NOT NULL,
+  `last_update_password` datetime NOT NULL,
   `active` tinyint(1) NOT NULL,
   `roles` json NOT NULL,
   PRIMARY KEY (`id`),
@@ -95,11 +96,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `uuid`, `username`, `password`, `email`, `last_login`, `last_failed_login`, `register_date`, `active`, `roles`) VALUES
-(1, '00010000-0000-5000-a000-000000000000', 'userAdmin', '$2y$13$uMExCbu6O14WMsy9J9AkEOWObuBwIF7pMbkjRJD60HBvvyuejJlNe', 'userAdmin@gmail.com', NULL, NULL, '2019-07-22 17:14:22', 1, '[\"ROLE_ADMIN\"]'),
-(2, '00020000-0000-5000-a000-000000000000', 'userInactive', '$2y$13$xZpJqt1JnqRd1CNZ.kbHd.bsBX/qYAnZIkqIKQe9BYOxr731p/SWK', 'userInactive@gmail.com', NULL, NULL, '2019-07-22 17:14:23', 0, '[]'),
-(3, '00030000-0000-5000-a000-000000000000', 'userForbidden', '$2y$13$qL378jBjiBzM8ttnxwg/c.R.9E5Fi82nv/phehq623XDNQgNiyFHC', 'userForbidden@gmail.com', NULL, NULL, '2019-07-22 17:14:23', 1, '[]'),
-(4, '00040000-0000-5000-a000-000000000000', 'userActive', '$2y$13$39G8ruJ148DyarTYvue12urn8phBD8cjHtTI.cEOYJztE8aXZBR0W', 'userActive@gmail.com', NULL, NULL, '2019-07-22 17:14:24', 1, '[]');
+INSERT INTO `user` (`id`, `uuid`, `username`, `password`, `email`, `last_login`, `last_failed_login`, `register_date`, `last_update_password`, `active`, `roles`) VALUES
+(1, '00010000-0000-5000-a000-000000000000', 'userAdmin', '$2y$13$03S4r6axoqCwrUBrZ9z9M.Ekaeh0MgfSmDGfzrtpg9OBs24CdqPzW', 'userAdmin@gmail.com', NULL, NULL, '2019-07-24 12:36:28', '2019-07-24 12:36:28', 1, '[\"ROLE_ADMIN\"]'),
+(2, '00020000-0000-5000-a000-000000000000', 'userInactive', '$2y$13$RoK942G9srGoi1lIA/LqnekBt.9nIhzOjKrjUel50SE3jp/hvgkuW', 'userInactive@gmail.com', NULL, NULL, '2019-07-24 12:36:29', '2019-07-24 12:36:29', 0, '[]'),
+(3, '00030000-0000-5000-a000-000000000000', 'userForbidden', '$2y$13$3WDGQX691TIMkeYNskpJiOsI26qWyjpMZjwjLwBA41uLR7f0dRaE.', 'userForbidden@gmail.com', NULL, NULL, '2019-07-24 12:36:29', '2019-07-24 12:36:29', 1, '[]'),
+(4, '00040000-0000-5000-a000-000000000000', 'userActive', '$2y$13$oDPLqmo.MfAVuoyPk2haCeQTYJMu9z5W4l9cWMgKpXqMZOfM/wlVO', 'userActive@gmail.com', NULL, NULL, '2019-07-24 12:36:30', '2019-07-24 12:36:30', 1, '[]');
 
 --
 -- Contraintes pour les tables déchargées
