@@ -1,1 +1,1 @@
-{"uuid":"@string@.isUuid()","username":"UserActivePatched","email":"userActive@gmail.com","register_date":"@date@","active":true,"roles":[]}
+{"uuid":"@string@.isUuid()","username":"UserActivePatched","email":"userActive@gmail.com","register_date":"@date@","last_update_password":"@date@","active":true,"roles":[]}
