@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "deozza/philarmony-core-bundle",
-            "version": "3.0.0",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deozza/PhilarmonyCore.git",
-                "reference": "3231b11e162f735ce2034a4d964c655631b48648"
+                "reference": "d30267f6fe350cbae9f86e013318a1548a8ec58d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/3231b11e162f735ce2034a4d964c655631b48648",
-                "reference": "3231b11e162f735ce2034a4d964c655631b48648",
+                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/d30267f6fe350cbae9f86e013318a1548a8ec58d",
+                "reference": "d30267f6fe350cbae9f86e013318a1548a8ec58d",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                 }
             ],
             "description": "A bundle to create quickly a modular REST API upon Symfony 4",
-            "time": "2019-07-22T20:23:52+00:00"
+            "time": "2019-07-23T20:04:30+00:00"
         },
         {
             "name": "deozza/philarmony-utils",
