@@ -57,20 +57,7 @@ entities:
                 - ROLE_ADMIN
           DELETE:
             properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id
+              - image
             by:
               users:
                 - owner
@@ -103,20 +90,7 @@ entities:
             by: all
           DELETE:
             properties:
-              - title
-              - description
-              - surface
-              - rooms
-              - price
-              - utilities
-              - beds
-              - bath_room
-              - environment
-              - city
-              - address
-              - postal_code
-              - country 
-              - legal_id            
+              - image
             by:
               users:
                 - owner
@@ -187,7 +161,9 @@ entities:
           GET:
             by:
               users: 
-                - owner    #owner only ?
+                - owner
+              roles:
+                - ROLE_ADMIN
           DELETE:
             by:
               users:
@@ -222,31 +198,22 @@ entities:
             by:
               users:
                 - owner
+                - annonce.owner
               roles:
                 - ROLE_ADMIN 
           DELETE:
             by:
               users:
                 - owner
+                - annonce.owner
               roles:
                 - ROLE_ADMIN
-          PATCH:                #
-            properties:         #
-              - nb_people       #
-              - coming_at       #
-              - leaving_at      #
-              - total_price     #
-              - more            # no patch ?
-            by:                 #
-              users:            #
-                - owner         #
-              roles:            #
-                - ROLE_ADMIN    #
 
   notification:
     properties:
       - notif_title
       - content
+      - user
     states:
       __default:
         methods:
@@ -254,6 +221,7 @@ entities:
             properties:
               - notif_title
               - content
+              - user
             by:
               roles:
                 - ROLE_ADMIN
@@ -262,7 +230,7 @@ entities:
           GET:
             by:
               users:
-                - owner
+                - user
               roles:
                 - ROLE_ADMIN
           DELETE:
@@ -275,32 +243,7 @@ entities:
       - content
       - seen
       - created_at
-    states:
-      __default:
-        methods:
-          POST:
-            properties:
-              - user
-              - content
-              - seen
-              - created_at
-            by:
-              roles:
-                - ROLE_USER
-      posted:
-        methods:
-          GET:
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN                
-          DELETE:
-            by:
-              users:
-                - owner
-              roles:
-                - ROLE_ADMIN               
+
   conversation:
     properties:
       - convers_title
@@ -309,27 +252,30 @@ entities:
     states:
       __default:
         methods:
-          GET:            
+          POST:
+            properties:
+              - convers_title
+              - participant
             by:
-              users:
-                - owner
               roles:
-                - ROLE_ADMIN
+                - ROLE_USER
       published:
         methods:
-          DELETE:
+          POST:
+            properties:
+              - message
             by:
               users:
-                - owner
+                - participant
+          PATCH:
+            properties:
+              - participant
+            by:
+              users:
+                - participant
               roles:
                 - ROLE_ADMIN
-                
-
-
-
-
-
-
-
-    
-  
+          DELETE:
+            by:
+              roles:
+                - ROLE_ADMIN

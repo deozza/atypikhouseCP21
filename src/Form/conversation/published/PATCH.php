@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\review\__default;
+namespace App\Form\conversation\published;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,36 +18,19 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityRepository;
 use Deozza\PhilarmonyCoreBundle\Entity\Entity;
 
-class POST extends AbstractType
+class PATCH extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estate', EntityType::class, [
-            'class' => Entity::class,
-            'query_builder'=> function(EntityRepository $er){
-                return $er->createQueryBuilder('e')
-                ->where("e.kind = :kind")
-                ->setParameter(':kind', 'estate');
-            },
-            'choice_value' =>  function(Entity $entity = null){
-                return $entity ? $entity->getUuidAsString() : '';
-            },
-            'constraints'=>[
-                new Assert\NotBlank()
+        $builder->add('participant' , CollectionType::class, [
+            'entry_type' => TextType::class,
+            'allow_add' => true,
+            'allow_delete' => true,
+            'entry_options' => [
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ],
             ]
-        ]);
-
-        $builder->add('content' , TextType::class, [
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
-        ]);
-
-        $builder->add('rating' , IntegerType::class, [
-            'constraints' => [
-                new Assert\GreaterThanOrEqual(0),
-                new Assert\LesserThanOrEqual(10),
-            ],
         ]);
 
     }

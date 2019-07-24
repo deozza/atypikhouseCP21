@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\message\__default;
+namespace App\Form\conversation\published;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,23 +22,6 @@ class POST extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('user' , TextType::class, [
-            'constraints' => [
-            ],
-        ]);
-
-        $builder->add('content' , TextType::class, [
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
-        ]);
-
-        $builder->add('seen', HiddenType::class, [
-            'data' => '',
-        ]);
-        $builder->add('created_at', HiddenType::class, [
-            'data' => new \DateTime('now'),
-        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

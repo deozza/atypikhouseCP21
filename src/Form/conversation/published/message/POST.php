@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\review\__default;
+namespace App\Form\conversation\published\message;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,19 +22,10 @@ class POST extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estate', EntityType::class, [
-            'class' => Entity::class,
-            'query_builder'=> function(EntityRepository $er){
-                return $er->createQueryBuilder('e')
-                ->where("e.kind = :kind")
-                ->setParameter(':kind', 'estate');
-            },
-            'choice_value' =>  function(Entity $entity = null){
-                return $entity ? $entity->getUuidAsString() : '';
-            },
-            'constraints'=>[
-                new Assert\NotBlank()
-            ]
+        $builder->add('user' , TextType::class, [
+            'constraints' => [
+                new Assert\NotBlank(),
+            ],
         ]);
 
         $builder->add('content' , TextType::class, [
@@ -43,11 +34,15 @@ class POST extends AbstractType
             ],
         ]);
 
-        $builder->add('rating' , IntegerType::class, [
+        $builder->add('seen', HiddenType::class, [
+            'data' => '',
+        ]);
+        $builder->add('created_at' , DateTimeType::class, [
             'constraints' => [
-                new Assert\GreaterThanOrEqual(0),
-                new Assert\LesserThanOrEqual(10),
+                new Assert\DateTime(),
+                new Assert\NotBlank(),
             ],
+            'widget' => 'single_text'
         ]);
 
     }

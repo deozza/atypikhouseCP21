@@ -51,11 +51,11 @@ class PATCH extends AbstractType
                 ],
         ]);
 
-        $builder->add('price' , IntegerType::class, [
+        $builder->add('price' , NumberType::class, [
             'constraints' => [
                 new Assert\GreaterThan(0),
                 new Assert\NotBlank(),
-                ],
+            ],
         ]);
 
         $builder->add('utilities' , CollectionType::class, [
@@ -95,30 +95,35 @@ class PATCH extends AbstractType
 
         $builder->add('city' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['min'=>'1']),
                 new Assert\NotBlank(),
             ],
         ]);
 
         $builder->add('address' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['min'=>'1']),
                 new Assert\NotBlank(),
             ],
         ]);
 
         $builder->add('postal_code' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['min'=>'1']),
                 new Assert\NotBlank(),
             ],
         ]);
 
         $builder->add('country' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['min'=>'1']),
                 new Assert\NotBlank(),
             ],
         ]);
 
         $builder->add('legal_id' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['min'=>'1']),
             ],
         ]);
 

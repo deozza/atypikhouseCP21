@@ -22,11 +22,7 @@ class POST extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('estate', CollectionType::class, [
-            'entry_type' => EntityType::class,
-            'allow_add' => true,
-            'allow_delete' => true,
-            'entry_options' => [
+        $builder->add('estate', EntityType::class, [
             'class' => Entity::class,
             'query_builder'=> function(EntityRepository $er){
                 return $er->createQueryBuilder('e')
@@ -35,7 +31,10 @@ class POST extends AbstractType
             },
             'choice_value' =>  function(Entity $entity = null){
                 return $entity ? $entity->getUuidAsString() : '';
-            }
+            },
+            'constraints'=>[
+                new Assert\NotBlank()
+            ]
         ]);
 
         $builder->add('nb_people' , IntegerType::class, [
@@ -61,14 +60,15 @@ class POST extends AbstractType
             'widget' => 'single_text'
         ]);
 
-        $builder->add('total_price' , IntegerType::class, [
+        $builder->add('total_price' , NumberType::class, [
             'constraints' => [
                 new Assert\NotBlank(),
-                ],
+            ],
         ]);
 
         $builder->add('more' , TextType::class, [
             'constraints' => [
+                new Assert\Length(['max'=>'255']),
             ],
         ]);
 

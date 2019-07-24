@@ -31,7 +31,7 @@ properties:
       greaterThan: 0
 
   price:
-    type: int
+    type: float
     constraints:
       unique: false
       required: true 
@@ -79,40 +79,42 @@ properties:
     type: string
     constraints:
       unique: false
-      required: true 
+      required: true
+      lengthMin: 1
 
   address:
     type: string
     constraints:
       unique: false
-      required: true 
+      required: true
+      lengthMin: 1
 
   postal_code:
     type: string
     constraints:
       unique: false
       required: true 
+      lengthMin: 1
 
   country:
     type: string
     constraints:
       unique: false
       required: true 
+      lengthMin: 1
 
   legal_id:
     type: string
     constraints:
       unique: true
       required: false
+      lengthMin: 1
 
   estate:
     type: entity.estate
-    array: true
     constraints:
       unique: false
       required: true
-
-
 
   content:
     type: string
@@ -125,9 +127,8 @@ properties:
     constraints:
       unique: false
       required: false
-      greaterThan: 0
+      greaterThanOrEqual: 0
       lesserThanOrEqual: 10
-       
 
   
   nb_people:
@@ -142,17 +143,15 @@ properties:
     constraints:
       unique: false
       required: true
-      greaterThan: today
 
   leaving_at:
     type: date
     constraints: 
       unique: false
       required: true
-      greaterThan: today
 
   total_price:
-    type: int
+    type: float
     constraints:
       unique: false
       required: true
@@ -162,16 +161,16 @@ properties:
     constraints:
       unique: false
       required: false
-    
+      lengthMax: 255
   
   user:
     type: string
     constraints:
       unique: false
-      required: false
+      required: true
  
   seen:
-     type: string
+     type: enumeration.boolean
      constraints:
       unique: false
       required: false
@@ -182,14 +181,12 @@ properties:
     constraints:
       unique: false
       required: true
-      automatic: date.now
-      
 
   message:
-    type: string    
+    type: embedded.message
     array: true
     constraints:
-      unique: true
+      unique: false
       required: true
     
   participant:
