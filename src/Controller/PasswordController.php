@@ -141,6 +141,7 @@ class PasswordController extends AbstractController
 
         $encodedPassword = $encoder->encodePassword($user, $passwordReset->getPassword());
         $user->setPassword($encodedPassword);
+        $user->setLastPasswordUpdate(new \DateTime('now'));
         $this->em->flush();
         return $this->response->created($user, ['user_basic']);
     }

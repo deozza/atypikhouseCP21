@@ -243,6 +243,7 @@ class UserController extends AbstractController
         if($user->getNewPassword() && $user->getNewPassword() != $user->getPlainPassword())
         {
             $user->setPassword($encoder->encodePassword($user, $user->getNewPassword()));
+            $user->setLastPasswordUpdate(new \DateTime('now'));
         }
         $this->em->flush();
         return $this->response->ok($user, ['user_basic']);
@@ -287,6 +288,7 @@ class UserController extends AbstractController
         if($user->getNewPassword() && $user->getNewPassword() != $user->getPlainPassword())
         {
             $user->setPassword($encoder->encodePassword($user, $user->getNewPassword()));
+            $user->setLastPasswordUpdate(new \DateTime('now'));
         }
 
         $this->em->flush();
