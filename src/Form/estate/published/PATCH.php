@@ -30,6 +30,16 @@ class PATCH extends AbstractType
             ],
         ]);
 
+        $builder->add('estate_category' , TextType::class, [
+            'constraints' => [
+                new Assert\Choice([
+                    'choices' =>[ 'nature_vibes', 'love_vibes', 'beach_vibes', 'family_vibes', 'unique_vibes', 'food_vibes', 'treehouse', 'cabin', 'chalet', 'caravan', 'ecolodge', 'tiny_house', 'old_caravan', 'tent', 'tepee', 'yurt', 'hanging_tent', 'nest', 'bubble', 'dome', 'igloo', 'safari', 'boat', 'piles_cabin', 'water_cabin',],
+                    'strict' => true
+                ]),
+                new Assert\NotBlank(),
+            ],
+        ]);
+
         $builder->add('description' , TextType::class, [
             'constraints' => [
                 new Assert\Length(['min'=>'20']),

@@ -1,0 +1,107 @@
+{
+  "current_page_number": 1,
+  "num_items_per_page": 10,
+  "items": [
+    {
+      "uuid": "00001000-0000-4000-a000-000000000000",
+      "kind": "estate",
+      "validation_state": "posted",
+      "owner": {
+        "username": "userActive",
+        "email": "userActive@gmail.com",
+        "register_date": "@date@"
+      },
+      "date_of_creation": "@date@",
+      "last_update": "@date@",
+      "properties": {
+        "beds": "@int@",
+        "city": "@string@",
+        "price": "@int@",
+        "rooms": "@int@",
+        "title": "@string@",
+        "address": "@string@",
+        "country": "@string@",
+        "surface": "@int@",
+        "bath_room": "@int@",
+        "utilities": [
+          "@string@"
+        ],
+        "description": "@string@",
+        "environment": [
+          "@string@"
+        ],
+        "postal_code": "@string@",
+        "estate_category": "@string@"
+      }
+    },
+    {
+      "uuid": "00003000-0000-4000-a000-000000000000",
+      "kind": "estate",
+      "validation_state": "published",
+      "owner": {
+        "username": "userActive",
+        "email": "userActive@gmail.com",
+        "register_date": "@date@"
+      },
+      "date_of_creation": "@date@",
+      "last_update": "@date@",
+      "properties": {
+        "beds": "@int@",
+        "city": "@string@",
+        "price": "@int@",
+        "rooms": "@int@",
+        "title": "@string@",
+        "address": "@string@",
+        "country": "@string@",
+        "surface": "@int@",
+        "bath_room": "@int@",
+        "utilities": [
+          "@string@"
+        ],
+        "description": "@string@",
+        "environment": [
+          "@string@"
+        ],
+        "postal_code": "@string@",
+        "estate_category": "@string@"
+      }
+    },
+    {
+      "uuid": "00004000-0000-4000-a000-000000000000",
+      "kind": "estate",
+      "validation_state": "published",
+      "owner": {
+        "username": "userActive2",
+        "email": "userActive2@gmail.com",
+        "register_date": "@date@"
+      },
+      "date_of_creation": "@date@",
+      "last_update": "@date@",
+      "properties": {
+        "beds": "@int@",
+        "city": "@string@",
+        "image": {
+          "testfile": "@string@"
+        },
+        "price": "@int@",
+        "rooms": "@int@",
+        "title": "@string@",
+        "address": "@string@",
+        "country": "@string@",
+        "surface": "@int@",
+        "legal_id": "@string@",
+        "bath_room": "@int@",
+        "utilities": [
+          "@string@"
+        ],
+        "description": "@string@",
+        "environment": [
+          "@string@"
+        ],
+        "postal_code": "@string@",
+        "estate_category": "@string@"
+      }
+    }
+  ],
+  "total_count": 3
+}
