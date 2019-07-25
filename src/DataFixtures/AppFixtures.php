@@ -10,6 +10,7 @@ class AppFixtures extends Fixture
 {
     use UserFixturesTrait;
     use AnnonceFixtureTrait;
+    use ReservationFixtureTrait;
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
         $this->encoder = $encoder;
@@ -30,7 +31,7 @@ class AppFixtures extends Fixture
         );
         $this->manager->flush();
 
-        $this->annonces = $this->createAnnonces(
+        $this->estates = $this->createAnnonces(
             [
                 ["owner" => $this->users[3], "validationState"=>"posted", "photo"=>null, 'legal_id'=>false],
                 ["owner" => $this->users[4], "validationState"=>"posted", "photo"=>"1.jpeg", 'legal_id'=>true],
@@ -40,6 +41,13 @@ class AppFixtures extends Fixture
         );
         $this->manager->flush();
 
+        $this->reservation = $this->createReservations(
+            [
+                ['owner'=>$this->users[3], "validationState"=>"posted", 'estate'=>$this->estates[3], 'coming_at'=>"P01D", 'leaving_at'=>"P10D", 'nb_people'=>1],
+                ['owner'=>$this->users[4], "validationState"=>"posted", 'estate'=>$this->estates[2], 'coming_at'=>"P01D", 'leaving_at'=>"P10D", 'nb_people'=>1]
+
+            ]
+        );
 
     }
 }
