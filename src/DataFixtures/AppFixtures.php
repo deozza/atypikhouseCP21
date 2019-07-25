@@ -48,6 +48,6 @@ class AppFixtures extends Fixture
 
             ]
         );
-
+        $this->manager->flush();
     }
 }
