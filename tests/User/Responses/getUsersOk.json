@@ -1,28 +1,54 @@
-{"current_page_number":1,
-  "num_items_per_page":10,
-  "items":[{
-    "uuid":"@string@.isUuid()",
-    "username":"userAdmin","email":"userAdmin@gmail.com",
-    "register_date":"@date@",
-    "last_update_password":"@date@",
-    "active":true,"roles":["ROLE_ADMIN"]},
-    {"uuid":"@string@.isUuid()",
-      "username":"userInactive",
-      "email":"userInactive@gmail.com",
-      "register_date":"@date@",
-      "last_update_password":"@date@",
-      "active":false,"roles":[]},
-      {"uuid":"@string@.isUuid()",
-        "username":"userForbidden",
-        "email":"userForbidden@gmail.com",
-        "register_date":"@date@",
-        "last_update_password":"@date@",
-        "active":true,"roles":[]},
-        {"uuid":"@string@.isUuid()",
-          "username":"userActive",
-          "email":"userActive@gmail.com",
-          "register_date":"@date@",
-          "last_update_password":"@date@",
-          "active":true,
-          "roles":[]}],
-          "total_count":4}
+{
+  "current_page_number": 1,
+  "num_items_per_page": 10,
+  "items": [
+    {
+      "uuid": "00010000-0000-5000-a000-000000000000",
+      "username": "userAdmin",
+      "email": "userAdmin@gmail.com",
+      "register_date": "@date@",
+      "last_update_password": "@date@",
+      "active": true,
+      "roles": [
+        "ROLE_ADMIN"
+      ]
+    },
+    {
+      "uuid": "00020000-0000-5000-a000-000000000000",
+      "username": "userInactive",
+      "email": "userInactive@gmail.com",
+      "register_date": "@date@",
+      "last_update_password": "@date@",
+      "active": false,
+      "roles": []
+    },
+    {
+      "uuid": "00030000-0000-5000-a000-000000000000",
+      "username": "userForbidden",
+      "email": "userForbidden@gmail.com",
+      "register_date": "@date@",
+      "last_update_password": "@date@",
+      "active": true,
+      "roles": []
+    },
+    {
+      "uuid": "00040000-0000-5000-a000-000000000000",
+      "username": "userActive",
+      "email": "userActive@gmail.com",
+      "register_date": "@date@",
+      "last_update_password": "@date@",
+      "active": true,
+      "roles": []
+    },
+    {
+      "uuid": "00050000-0000-5000-a000-000000000000",
+      "username": "userActive2",
+      "email": "userActive2@gmail.com",
+      "register_date": "@date@",
+      "last_update_password": "@date@",
+      "active": true,
+      "roles": []
+    }
+  ],
+  "total_count": 5
+}
