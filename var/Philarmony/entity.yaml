@@ -214,9 +214,9 @@ entities:
         constraints:
           properties:
             coming_at:
-              - notBetween.reservation(coming_at,leaving_at)
+              - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
             leaving_at:
-              - notBetween.reservation(coming_at,leaving_at)
+              - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
             estate.validationState:
               - equal.value(published)
             nb_people:
@@ -226,14 +226,14 @@ entities:
             by:
               users:
                 - owner
-                - annonce.owner
+                - estate.owner
               roles:
                 - ROLE_ADMIN 
           DELETE:
             by:
               users:
                 - owner
-                - annonce.owner
+                - estate.owner
               roles:
                 - ROLE_ADMIN
 
