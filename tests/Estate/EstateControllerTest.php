@@ -54,6 +54,18 @@ class EstateControllerTest extends TestAsserter
                 ["kind" => "unit", "test" => ['method'=> 'DELETE', 'url' => "api/entity/00001000-0000-4000-a000-000000000000"           , 'token'=>'token_userActive'   , 'status' => 204] ],
                 ["kind" => "unit", "test" => ['method'=> 'DELETE', 'url' => "api/entity/00001000-0000-4000-a000-000000000000"           , 'token'=>'token_userAdmin'    , 'status' => 204] ],
 
+                ['kind' => 'unit', 'test' => ['method'=> 'PATCH'  , 'url' =>'api/validate/00001000-0000-4000-a000-000000000000'          , 'token'=>'token_userAdmin'    , 'status' => 200] ],
+
+                [
+                    "kind"=>"scenario",
+                    "test"=>
+                    [
+                        ['method'=>'POST' , 'url'=>'api/entity/estate'  , 'token'=>'token_userActive', 'status'=>409, 'out'=>'postedValidEstateScenario', 'in'=>'postValidEstate'],
+                        ['method'=>'GET'  , 'url'=>'api/entity/#uuid#'                               , 'status'=>403],
+                        ['method'=>'PATCH', 'url'=>'api/validate/#uuid#', 'token'=>'token_userAdmin' , 'status'=>200],
+                        ['method'=>'GET'  , 'url'=>'api/entity/#uuid#'                               , "status"=>200]
+                    ]
+                ]
             ];
     }
 }
