@@ -1,0 +1,14 @@
+{% block subject %}
+    Bienvenue {{ user.username }} sur AtypikHouse
+{% endblock %}
+
+{% block body_text %}
+    {% autoescape false %}
+        Cliquez sur ce lien pour activer votre compte
+
+        {{ token }}
+    {% endautoescape %}
+{% endblock %}
+
+{% block html_text %}
+{% endblock %}

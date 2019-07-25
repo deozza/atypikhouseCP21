@@ -33,3 +33,7 @@ services:
     Deozza\PhilarmonyCoreBundle\Repository\:
       resource: '@DeozzaPhilarmonyCoreBundle/Repository'
       tags: ['doctrine.service_entity']  
+
+    App\Service\MailSender:
+      arguments:
+        $rootpath: '%kernel.project_dir%'
