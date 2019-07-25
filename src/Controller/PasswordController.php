@@ -48,7 +48,7 @@ class PasswordController extends AbstractController
 
         $user = $this->em->getRepository(User::class)->findOneByEmail($passwordResetRequest->getEmail());
 
-        if(empty($user) || $user->isActive() === false)
+        if(empty($user) || $user->getActive() === false)
         {
             return $this->response->created([]);
         }
@@ -101,7 +101,7 @@ class PasswordController extends AbstractController
                     ]
                 ]);
             }
-            
+
             $user = $this->em->getRepository(User::class)->findOneByUuid($token->uuid);
             if(empty($user))
             {
