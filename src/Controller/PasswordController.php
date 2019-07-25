@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Form\password\PasswordResetRequestType;
 use App\Form\password\PasswordResetType;
 use Firebase\JWT\JWT;
-use JMS\Serializer\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
