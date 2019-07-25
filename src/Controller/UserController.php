@@ -5,12 +5,12 @@ use App\Entity\ActivateUser;
 use App\Entity\SubscribeUser;
 use App\Entity\User;
 use App\Event\UserEvent;
-use App\Form\password\ActivateUserType;
+use App\Form\user\ActivateUserType;
 use App\Form\user\PatchCurrentUserType;
 use App\Form\user\PatchUserType;
 use App\Form\user\PostUserType;
 use Firebase\JWT\JWT;
-use JMS\Serializer\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
@@ -146,7 +146,7 @@ class UserController extends AbstractController
     }
 
     /**
-     *@Route("user/current",
+     *@Route("user/activate",
      * name = "activateUser",
      * methods = {"PATCH"})
      */
