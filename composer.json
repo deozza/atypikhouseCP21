@@ -16,7 +16,9 @@
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "4.2.*",
         "symfony/web-server-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "doctrine/doctrine-fixtures-bundle": "^3.1",
+        "fzaninotto/faker": "^1.8"
     },
     "config": {
         "preferred-install": {
@@ -65,8 +67,6 @@
     },
     "require-dev": {
         "deozza/philarmony-api-tester-bundle": "^3.0",
-        "doctrine/doctrine-fixtures-bundle": "^3.1",
-        "fzaninotto/faker": "^1.8",
         "symfony/profiler-pack": "^1.0"
     }
 }
