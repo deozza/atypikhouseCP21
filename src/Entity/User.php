@@ -83,6 +83,13 @@ class User implements UserInterface
     private $registerDate;
 
     /**
+     * @ORM\Column(type="datetime")
+     * @JMS\Groups({"user_complete"})
+     */
+    private $lastUpdatePassword;
+
+
+    /**
      * @ORM\Column(type="boolean")
      * @JMS\Groups({"user_complete"})
      */
@@ -101,6 +108,7 @@ class User implements UserInterface
     {
         $this->active = false;
         $this->registerDate = new \DateTime('now');
+        $this->lastUpdatePassword = new \DateTime('now');
     }
     public function getId(): ?int
     {

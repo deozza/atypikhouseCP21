@@ -1,13 +1,18 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\ActivateUser;
 use App\Entity\SubscribeUser;
 use App\Entity\User;
+use App\Event\UserEvent;
+use App\Form\user\ActivateUserType;
 use App\Form\user\PatchCurrentUserType;
 use App\Form\user\PatchUserType;
 use App\Form\user\PostUserType;
 use Firebase\JWT\JWT;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,6 +29,7 @@ class UserController extends AbstractController
     const NOT_FOUND_MESSAGE = "This resource does not exist";
     const USER_ALREADY_EXISTS = "This user already exixts. Chose another username or another email";
     const INVALID_PASSWORD = "Your password is invalid";
+    const USER_ACTIVATE_TOKEN_KIND = "userActivation";
 
     public function __construct(ResponseMaker $responseMaker, EntityManagerInterface $em)
     {
@@ -88,7 +94,7 @@ class UserController extends AbstractController
      * name = "post_user",
      * methods = {"POST"})
      */
-    public function postUserAction(Request $request, UserPasswordEncoderInterface $encoder)
+    public function postUserAction(Request $request, UserPasswordEncoderInterface $encoder, EventDispatcherInterface $eventDispatcher)
     {
         $subscribe = new SubscribeUser();
         $postedSubscribe = json_decode($request->getContent(), true);
@@ -122,8 +128,83 @@ class UserController extends AbstractController
         $this->em->persist($user);
         $this->em->flush();
 
-        return $this->response->created($user, ['user_basic']);
+        $env = new Dotenv();
+        $env->load($this->getParameter('kernel.project_dir').'/.env');
+        $secret = getenv('APP_SECRET');
 
+        $token = [
+            'uuid' => $user->getUuidAsString(),
+            'exp' => date_create('+1 day')->format('U'),
+            "kind" => self::USER_ACTIVATE_TOKEN_KIND
+        ];
+
+        $JWTtoken = JWT::encode($token, $secret);
+        $event = new UserEvent(['token'=>$JWTtoken, 'user'=>$user]);
+        $eventDispatcher->dispatch(UserEvent::USER_SUBSCRIBE_NAME, $event);
+
+        return $this->response->created($user, ['user_basic']);
+    }
+
+    /**
+     *@Route("user/activate",
+     * name = "activateUser",
+     * methods = {"PATCH"})
+     */
+    public function activateUserAction(Request $request)
+    {
+        $activateUser = new ActivateUser();
+        $postedToken = json_decode($request->getContent(), true);
+        $form = $this->createForm(ActivateUserType::class, $activateUser);
+        $form->submit($postedToken);
+        if(!$form->isValid())
+        {
+            return $this->response->badForm($form);
+        }
+
+        $env = new Dotenv();
+        $env->load($this->getParameter('kernel.project_dir').'/.env');
+        $secret = getenv('APP_SECRET');
+
+        try
+        {
+            $token = JWT::decode($activateUser->getToken(), $secret, ['HS256']);
+            if($token->kind !== self::USER_ACTIVATE_TOKEN_KIND)
+            {
+                return $this->response->badRequest([
+                    "children" => [
+                        "token" => [
+                            "errors" => "The token is invalid"
+                        ]
+                    ]
+                ]);
+            }
+
+            $user = $this->em->getRepository(User::class)->findOneByUuid($token->uuid);
+            if(empty($user))
+            {
+                return $this->response->badRequest([
+                    "children" => [
+                        "token" => [
+                            "errors" => "The token is invalid"
+                        ]
+                    ]
+                ]);
+            }
+        }
+        catch(\Exception $e)
+        {
+            return $this->response->badRequest([
+                "children" => [
+                    "token" => [
+                        "errors" => "The token is invalid"
+                    ]
+                ]
+            ]);
+        }
+
+        $user->setActive(true);
+        $this->em->flush();
+        return $this->response->ok($user, ['user_basic']);
     }
     
     /**
@@ -162,6 +243,7 @@ class UserController extends AbstractController
         if($user->getNewPassword() && $user->getNewPassword() != $user->getPlainPassword())
         {
             $user->setPassword($encoder->encodePassword($user, $user->getNewPassword()));
+            $user->setLastPasswordUpdate(new \DateTime('now'));
         }
         $this->em->flush();
         return $this->response->ok($user, ['user_basic']);
@@ -206,6 +288,7 @@ class UserController extends AbstractController
         if($user->getNewPassword() && $user->getNewPassword() != $user->getPlainPassword())
         {
             $user->setPassword($encoder->encodePassword($user, $user->getNewPassword()));
+            $user->setLastPasswordUpdate(new \DateTime('now'));
         }
 
         $this->em->flush();

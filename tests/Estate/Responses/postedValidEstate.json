@@ -1,0 +1,40 @@
+{
+  "conflicts":{
+    "manual":{
+      "manual":false
+    }
+  },
+  "context":{
+    "uuid":"@string@.isUuid()",
+    "kind":"estate",
+    "validation_state":"posted",
+    "owner":{
+      "username":"userActive",
+      "email":"userActive@gmail.com",
+      "register_date":"@date@"
+    },
+    "date_of_creation":"@date@",
+    "last_update":"@date@",
+    "properties":{
+      "title":"this title is a valid one",
+      "estate_category":"cabin",
+      "description":"this description is a valid one",
+      "surface":50,
+      "rooms":2,
+      "price":100,
+      "utilities":[
+        "Wi-Fi"
+      ],
+      "beds":3,
+      "bath_room":1,
+      "environment":[
+        "parking"
+      ],
+      "city":"a",
+      "address":"a",
+      "postal_code":"a",
+      "country":"a",
+      "legal_id":"a"
+    }
+  }
+}

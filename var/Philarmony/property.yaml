@@ -110,6 +110,12 @@ properties:
       required: false
       lengthMin: 1
 
+  estate_category:
+    type: enumeration.estate_category
+    constraints:
+      unique: false
+      required: true
+
   estate:
     type: entity.estate
     constraints:
