@@ -18,5 +18,3 @@
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-
-composer.lock
