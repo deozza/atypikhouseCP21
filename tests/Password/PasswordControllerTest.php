@@ -43,7 +43,7 @@ class PasswordControllerTest extends TestAsserter
       #["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request', 'status' => 201, 'in' => 'postStringOk', 'out' => 'postedStringOk'] ],
 
       # password et token dans payload
-      #["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postWrongToken'  , 'out' => 'postedWrongToken'] ],
+      ["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postStringToken'  , 'out' => 'postedStringToken'] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postExpiredToken', 'out' => 'postedExpiredToken'] ],
       #["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postInvalidUser', 'out' => 'postedInvalidUser'] ],
       #["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postInvalidToken', 'out' => 'postedInvalidToken'] ],
