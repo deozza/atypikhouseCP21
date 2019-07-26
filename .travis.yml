@@ -1,6 +1,6 @@
 branches:
   only:
-    - recette
+    - master
 
 dist: bionic
 
@@ -43,4 +43,3 @@ before_script:
 script:
   - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
 
-    
