@@ -42,3 +42,5 @@ before_script:
 
 script:
   - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
+
+    
