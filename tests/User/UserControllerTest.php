@@ -26,20 +26,20 @@ class UserControllerTest extends TestAsserter
   {
     return
     [
-      ["kind" => "unit", "test" => ['method'=> 'PUT'    , 'url' => 'api/user/00400000-0000-5000-a000-000000000000', 'token' => 'token_userAdmin'  , 'status' => 405] ],
+      ["kind" => "unit", "test" => ['method'=> 'PUT'    , 'url' => 'api/user/00040000-0000-5000-a000-000000000000', 'token' => 'token_userAdmin'  , 'status' => 405] ],
       ["kind" => "unit", "test" => ['method'=> 'PUT'    , 'url' => 'api/users'                                                                    , 'status' => 405] ],
       ["kind" => "unit", "test" => ['method'=> 'PUT'    , 'url' => 'api/user/current'                                                             , 'status' => 405] ],
-      ["kind" => "unit", "test" => ['method'=> 'DELETE' , 'url' => 'api/user/00400000-0000-5000-a000-000000000000', 'token' => 'token_userAdmin'  , 'status' => 405] ],
+      ["kind" => "unit", "test" => ['method'=> 'DELETE' , 'url' => 'api/user/00040000-0000-5000-a000-000000000000', 'token' => 'token_userAdmin'  , 'status' => 405] ],
       ["kind" => "unit", "test" => ['method'=> 'DELETE' , 'url' => 'api/users'                                                                    , 'status' => 405] ],
       ["kind" => "unit", "test" => ['method'=> 'DELETE' , 'url' => 'api/user/current'                                                             , 'status' => 405] ],
-      ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/00400000-0000-5000-a000-000000000000'                                , 'status' => 401] ],
-      ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/00400000-0000-5000-a000-000000000000'                                , 'status' => 401] ],
+      ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/00040000-0000-5000-a000-000000000000'                                , 'status' => 401] ],
+      ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/00040000-0000-5000-a000-000000000000'                                , 'status' => 401] ],
       ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/current'                                                             , 'status' => 401] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/current'                                                             , 'status' => 401] ],
       ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/users'                                                                    , 'status' => 401] ],
-      ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/00400000-0000-5000-a000-000000000000', 'token' => 'token_userActive' , 'status' => 403] ],
+      ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/user/00040000-0000-5000-a000-000000000000', 'token' => 'token_userActive' , 'status' => 403] ],
       ["kind" => "unit", "test" => ['method'=> 'GET'    , 'url' => 'api/users'                                    , 'token' => 'token_userActive' , 'status' => 403] ],
-      ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/00400000-0000-5000-a000-000000000000', 'token' => 'token_userActive' , 'status' => 403] ],
+      ["kind" => "unit", "test" => ['method'=> 'PATCH'  , 'url' => 'api/user/00040000-0000-5000-a000-000000000000', 'token' => 'token_userActive' , 'status' => 403] ],
 
       ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/user' , 'status' => 400, 'in' => 'postExistingEmail'   , 'out' => 'postedExistingEmail'   ] ],
       ["kind" => "unit", "test" => ['method'=> 'POST'   , 'url' => 'api/user' , 'status' => 400, 'in' => 'postMissingDotEmail' , 'out' => 'postedMissingDotEmail' ] ],
