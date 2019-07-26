@@ -217,6 +217,7 @@ entities:
               - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
             leaving_at:
               - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
+              - greaterThan.self(coming_at)
             estate.validationState:
               - equal.value(published)
             nb_people:

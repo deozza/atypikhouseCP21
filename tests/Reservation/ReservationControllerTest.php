@@ -36,7 +36,9 @@ class ReservationControllerTest extends TestAsserter
                 ["kind" => "unit", "test" => ['method'=> 'GET'   , 'url' => 'api/entity/00000100-0000-4000-a000-000000000000'                 , 'token'=>'token_userActive2'  , 'status' => 200] ],
                 ["kind" => "unit", "test" => ['method'=> 'GET'   , 'url' => 'api/entity/00000100-0000-4000-a000-000000000000'                 , 'token'=>'token_userAdmin'    , 'status' => 200] ],
 
-                ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/entity/reservation'                                             ,'token'=>'token_userActive'   , 'status' => 201, 'out'=>'postedValidReservation', 'in'=>'postValidReservation'] ],
+                //["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/entity/reservation'                                             ,'token'=>'token_userActive'   , 'status' => 201, 'out'=>'postedValidReservation', 'in'=>'postValidReservation'] ],
+                ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/entity/reservation'                                             ,'token'=>'token_userActive'   , 'status' => 409, 'out'=>'postedInvalidDateReservation1', 'in'=>'postInvalidDateReservation1'] ],
+                ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/entity/reservation'                                             ,'token'=>'token_userActive'   , 'status' => 409, 'out'=>'postedInvalidDateReservation2', 'in'=>'postInvalidDateReservation2'] ],
 
                 ["kind" => "unit", "test" => ['method'=> 'DELETE', 'url' => 'api/entity/00000100-0000-4000-a000-000000000000'                 , 'token'=>'token_userForbidden', 'status' => 403] ],
                 ["kind" => "unit", "test" => ['method'=> 'DELETE', 'url' => 'api/entity/00000100-0000-4000-a000-000000000000'                 , 'token'=>'token_userActive'   , 'status' => 204] ],
