@@ -39,8 +39,8 @@ class PasswordControllerTest extends TestAsserter
       ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request' , 'status' => 400, 'in' => 'postMissingField', 'out' => 'postedMissingField'  ] ],
       ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request' , 'status' => 400, 'in' => 'postEmptyField'  , 'out' => 'postedEmptyField'    ] ],
 
-      ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request', 'status' => 201, 'in' => 'postEmailOK' , 'out' => 'postedEmailOk' ] ],
-      ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request', 'status' => 201, 'in' => 'postStringOk', 'out' => 'postedStringOk'] ],
+      ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request', 'status' => 201, 'in' => 'postEmailOK' , 'out' => 'postedEmailOK' ] ],
+      ["kind" => "unit", "test" => ['method'=> 'POST', 'url' => 'api/password/reset/request', 'status' => 201, 'in' => 'postStringOK', 'out' => 'postedStringOk'] ],
 
       ["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postStringToken'     , 'out' => 'postedStringToken'      ] ],
       ["kind" => "unit", "test" => ['method'=> 'PATCH', 'url' => 'api/password/reset', 'status' => 400, 'in' => 'postExpiredToken'    , 'out' => 'postedExpiredToken'     ] ],
