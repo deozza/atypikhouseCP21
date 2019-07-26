@@ -1,0 +1,107 @@
+{
+  "current_page_number": 1,
+  "num_items_per_page": 10,
+  "items": [
+    {
+      "uuid": "@string@.isUuid()",
+      "kind": "reservation",
+      "validation_state": "posted",
+      "owner": {
+        "username": "@string@",
+        "email": "@string@",
+        "register_date": "@date@"
+      },
+      "date_of_creation": "@date@",
+      "last_update": "@date@",
+      "properties": {
+        "more": "@string@",
+        "estate": {
+          "uuid": "@string@.isUuid()",
+          "owner": {
+            "uuid": "@string@.isUuid()",
+            "email": "@string@",
+            "username": "@string@"
+          },
+          "properties": {
+            "beds": "@int@",
+            "city": "@string@",
+            "image": {
+              "testfile": "@string@"
+            },
+            "price": "@int@",
+            "rooms": "@int@",
+            "title": "@string@",
+            "address": "@string@",
+            "country": "@string@",
+            "surface": "@int@",
+            "legal_id": "@string@",
+            "bath_room": "@int@",
+            "utilities": [
+              "@string@"
+            ],
+            "description": "@string@",
+            "environment": [
+              "@string@"
+            ],
+            "postal_code": "@string@",
+            "estate_category": "@string@"
+          },
+          "validationState": "published"
+        },
+        "coming_at": "@date@",
+        "nb_people": "@int@",
+        "leaving_at": "@date@",
+        "total_price": "@int@"
+      }
+    },
+    {
+      "uuid": "@string@.isUuid()",
+      "kind": "reservation",
+      "validation_state": "posted",
+      "owner": {
+        "username": "@string@",
+        "email": "@string@",
+        "register_date": "@date@"
+      },
+      "date_of_creation": "@date@",
+      "last_update": "@date@",
+      "properties": {
+        "more": "@string@",
+        "estate": {
+          "uuid": "@string@.isUuid()",
+          "owner": {
+            "uuid": "@string@.isUuid()",
+            "email": "@string@",
+            "username": "@string@"
+          },
+          "properties": {
+            "beds": "@int@",
+            "city": "@string@",
+            "price": "@int@",
+            "rooms": "@int@",
+            "title": "@string@",
+            "address": "@string@",
+            "country": "@string@",
+            "surface": "@int@",
+            "bath_room": "@int@",
+            "utilities": [
+              "@string@"
+            ],
+            "description": "@string@",
+            "environment": [
+              "@string@"
+            ],
+            "postal_code": "@string@",
+            "estate_category": "@string@"
+          },
+          "validationState": "published"
+        },
+        "coming_at": "@date@",
+        "nb_people": "@int@",
+        "leaving_at": "@date@",
+        "total_price": "@int@"
+      }
+    }
+  ],
+  "total_count": 2
+}

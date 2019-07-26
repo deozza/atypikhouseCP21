@@ -1,0 +1,32 @@
+{
+  "error":{
+    "errors":[
+      "This form should not contain extra fields."
+    ],
+    "children":{
+      "title":[],
+      "estate_category":[],
+      "description":[],
+      "surface":[],
+      "rooms":[],
+      "price":[],
+      "utilities":{
+        "children":[
+          []
+        ]
+      },
+      "beds":[],
+      "bath_room":[],
+      "environment":{
+        "children":[
+          []
+        ]
+      },
+      "city":[],
+      "address":[],
+      "postal_code":[],
+      "country":[],
+      "legal_id":[]
+    }
+  }
+}

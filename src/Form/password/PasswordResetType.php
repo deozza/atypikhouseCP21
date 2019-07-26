@@ -2,7 +2,7 @@
 
 namespace App\Form\password;
 
-use App\Entity\PasswordResetRequest;
+use App\Entity\PasswordReset;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -35,7 +35,7 @@ class PasswordResetType extends AbstractType
   public function configureOptions(OptionsResolver $resolver)
   {
     $resolver->setDefaults([
-      'data_class'=>PasswordResetRequest::class,
+      'data_class'=>PasswordReset::class,
       'csrf_protection'=>false
     ]);
   }

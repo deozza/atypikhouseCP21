@@ -1,0 +1,39 @@
+{
+  "conflicts":{
+    "manual":{
+      "manual":false
+    }
+  },
+  "context":{
+    "uuid":"00003000-0000-4000-a000-000000000000",
+    "kind":"estate",
+    "validation_state":"posted",
+    "owner":{
+      "username": "userActive",
+      "email": "userActive@gmail.com",
+      "register_date": "@date@"
+    },
+    "date_of_creation":"@date@",
+    "last_update":"@date@",
+    "properties":{
+      "beds":"@int@",
+      "city":"@string@",
+      "price":"@int@",
+      "rooms":"@int@",
+      "title":"@string@",
+      "address":"@string@",
+      "country":"@string@",
+      "surface":"@int@",
+      "bath_room":"@int@",
+      "utilities":[
+        "@string@"
+      ],
+      "description":"@string@",
+      "environment":[
+        "@string@"
+      ],
+      "postal_code":"@string@",
+      "estate_category":"@string@"
+    }
+  }
+}
