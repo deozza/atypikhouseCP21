@@ -36,9 +36,9 @@ install:
   - ./vendor/bin/simple-phpunit install
 
 before_script:
-  - bin/console d:d:c --env=test
-  - bin/console d:s:c --env=test
-  - bin/console d:f:l --env=test --append
+  - php bin/console d:d:c --env=test
+  - php bin/console d:s:c --env=test
+  - php bin/console d:f:l --env=test --append
 
 script:
   - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
