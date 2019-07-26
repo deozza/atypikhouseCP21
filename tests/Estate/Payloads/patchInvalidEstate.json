@@ -1,0 +1,17 @@
+{
+  "title": "string_too_short",
+  "estate_category": "invalid",
+  "description": "string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_string_too_long_",
+  "surface": -10,
+  "rooms": -10,
+  "price": -10,
+  "utilities": ["invalid"],
+  "beds": -10,
+  "bath_room": -10,
+  "environment": ["invalid"],
+  "city": "a",
+  "address": "a",
+  "postal_code": "a",
+  "country": "a",
+  "legal_id": "a"
+}

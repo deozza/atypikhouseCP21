@@ -2,6 +2,7 @@ entities:
   estate:
     properties:
       - title
+      - estate_category
       - description
       - surface
       - rooms
@@ -22,6 +23,7 @@ entities:
           POST:
             properties:
               - title
+              - estate_category
               - description
               - surface
               - rooms
@@ -63,9 +65,11 @@ entities:
                 - owner
               roles:
                 - ROLE_ADMIN
+
           PATCH:
             properties:
               - title
+              - estate_category
               - description
               - surface
               - rooms
@@ -85,6 +89,11 @@ entities:
               roles:
                 - ROLE_ADMIN
       published:
+        constraints:
+          manual:
+            by:
+              roles:
+                - ROLE_ADMIN
         methods:
           GET:            
             by: all
@@ -99,6 +108,7 @@ entities:
           PATCH:
             properties:
               - title
+              - estate_category
               - description
               - surface
               - rooms
@@ -134,6 +144,10 @@ entities:
               roles:
                 - ROLE_USER
       posted:
+        constraints:
+          properties:
+            estate.validationState:
+              - equal.value(published)
         methods:
           GET:
             by: all
@@ -157,6 +171,10 @@ entities:
               roles:
                 - ROLE_USER
       posted:
+        constraints:
+          properties:
+            estate.validationState:
+              - equal.value(published)
         methods:
           GET:
             by:
@@ -191,21 +209,31 @@ entities:
               - more
             by:
               roles:
-                - ROLE_USER 
+                - ROLE_USER
       posted:
+        constraints:
+          properties:
+            coming_at:
+              - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
+            leaving_at:
+              - notBetween.reservation(coming_at,leaving_at).param(estate.uuid)
+            estate.validationState:
+              - equal.value(published)
+            nb_people:
+              - lesserThanOrEqual.self(estate.properties.beds)
         methods:
           GET:
             by:
               users:
                 - owner
-                - annonce.owner
+                - estate.owner
               roles:
                 - ROLE_ADMIN 
           DELETE:
             by:
               users:
                 - owner
-                - annonce.owner
+                - estate.owner
               roles:
                 - ROLE_ADMIN
 
