@@ -126,7 +126,16 @@ entities:
               users:
                 - owner
               roles:
-                - ROLE_ADMIN            
+                - ROLE_ADMIN
+      estate_of_the_month:
+        constraints:
+          manual:
+            by:
+              roles:
+                - ROLE_ADMIN
+        methods:
+          GET:
+            by: all
   review:
     properties:
       - estate
