@@ -60,7 +60,7 @@ class AuthentificatorController extends AbstractController
         $env = new Dotenv();
         $env->load($this->getParameter('kernel.project_dir').'/.env');
         $secret = getenv('APP_SECRET');
-        $token = ['username' => $user->getUsername(), 'exp' => date_create('+1 day')->format('U')];
+        $token = ['username' => $user->getUsername(), 'roles' => $user->getRoles(), 'exp' => date_create('+1 day')->format('U')];
         $authToken = new ApiToken($user, JWT::encode($token, $secret));
         $this->em->persist($authToken);
         $user->setLastLogin(new \DateTime('now'));
