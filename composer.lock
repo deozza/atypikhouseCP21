@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fda8cda3d8eb66f64fd0993a567fb9c",
+    "content-hash": "8ef6f879e39507a03eb2905b0818bdf3",
     "packages": [
         {
             "name": "deozza/philarmony-api-tester-bundle",
@@ -51,16 +51,16 @@
         },
         {
             "name": "deozza/philarmony-core-bundle",
-            "version": "3.0.8",
+            "version": "dev-atypikhouse",
             "source": {
                 "type": "git",
                 "url": "https://github.com/deozza/PhilarmonyCore.git",
-                "reference": "4eee78c2fa0694584f1ff476e802ae4b2a6aa1da"
+                "reference": "28a129ba5aca43f3fb1ae9bf0d91c138c5084825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/4eee78c2fa0694584f1ff476e802ae4b2a6aa1da",
-                "reference": "4eee78c2fa0694584f1ff476e802ae4b2a6aa1da",
+                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/28a129ba5aca43f3fb1ae9bf0d91c138c5084825",
+                "reference": "28a129ba5aca43f3fb1ae9bf0d91c138c5084825",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,11 @@
                     "Deozza\\PhilarmonyCoreBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Deozza\\PhilarmonyCoreBundle\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -111,7 +115,11 @@
                 }
             ],
             "description": "A bundle to create quickly a modular REST API upon Symfony 4",
-            "time": "2019-07-25T14:42:45+00:00"
+            "support": {
+                "source": "https://github.com/deozza/PhilarmonyCore/tree/atypikhouse",
+                "issues": "https://github.com/deozza/PhilarmonyCore/issues"
+            },
+            "time": "2019-08-27T10:03:58+00:00"
         },
         {
             "name": "deozza/philarmony-utils",
@@ -3907,16 +3915,16 @@
         },
         {
             "name": "symfony/contracts",
-            "version": "v1.1.5",
+            "version": "v1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/contracts.git",
-                "reference": "3f3f796d5f24a098a9da62828b8daa1b11494c1b"
+                "reference": "3692662d26cd9d204a69748792ae021c35313610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/contracts/zipball/3f3f796d5f24a098a9da62828b8daa1b11494c1b",
-                "reference": "3f3f796d5f24a098a9da62828b8daa1b11494c1b",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/3692662d26cd9d204a69748792ae021c35313610",
+                "reference": "3692662d26cd9d204a69748792ae021c35313610",
                 "shasum": ""
             },
             "require": {
@@ -3980,7 +3988,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-06-20T06:46:26+00:00"
+            "time": "2019-08-21T15:14:41+00:00"
         },
         {
             "name": "symfony/debug",
@@ -5087,16 +5095,16 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v4.3.3",
+            "version": "v4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac"
+                "reference": "3b1ab2e027d7c5af0e693c4a5b4ba5d407f1814d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac",
-                "reference": "5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/3b1ab2e027d7c5af0e693c4a5b4ba5d407f1814d",
+                "reference": "3b1ab2e027d7c5af0e693c4a5b4ba5d407f1814d",
                 "shasum": ""
             },
             "require": {
@@ -5148,7 +5156,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2019-07-18T13:23:37+00:00"
+            "time": "2019-08-20T14:27:59+00:00"
         },
         {
             "name": "symfony/polyfill-intl-icu",
@@ -6882,7 +6890,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "deozza/philarmony-core-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
