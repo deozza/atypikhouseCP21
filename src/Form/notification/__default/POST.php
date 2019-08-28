@@ -36,12 +36,6 @@ class POST extends AbstractType
             ],
         ]);
 
-        $builder->add('user' , TextType::class, [
-            'constraints' => [
-                new Assert\NotBlank(),
-            ],
-        ]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
