@@ -64,7 +64,7 @@ class UserController extends AbstractController
      * name = "get_user_specific",
      * methods = {"GET"})
      */
-    public function getUserSpecificAction(string $uuid)
+    public function getUserSpecificAction(string $uuid, Request $request)
     {
         if(empty($this->getUser()->getId())) return $this->response->notAuthorized();
         if(!in_array("ROLE_ADMIN", $this->getUser()->getRoles())) return $this->response->forbiddenAccess(self::FORBIDDEN_MESSAGE);
