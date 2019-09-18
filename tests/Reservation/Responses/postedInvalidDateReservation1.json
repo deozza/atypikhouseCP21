@@ -1,0 +1,68 @@
+{
+  "conflicts": {
+    "coming_at": {
+      "notBetween.reservation(coming_at,leaving_at).param(estate.uuid)": true
+    },
+    "leaving_at": {
+      "notBetween.reservation(coming_at,leaving_at).param(estate.uuid)": true,
+      "greaterThan.self(coming_at)": false
+    },
+    "estate.validationState": {
+      "equal.value(published)": true
+    },
+    "nb_people": {
+      "lesserThanOrEqual.self(estate.properties.beds)": true
+    }
+  },
+  "context": {
+    "uuid": "@string@.isUuid()",
+    "kind": "reservation",
+    "validation_state": "__default",
+    "owner": {
+      "username": "userActive",
+      "email": "userActive@gmail.com",
+      "register_date": "@date@"
+    },
+    "date_of_creation": "@date@",
+    "last_update": "@date@",
+    "properties": {
+      "estate": {
+        "uuid": "@string@.isUuid()",
+        "validationState": "published",
+        "owner": {
+          "uuid": "@string@.isUuid()",
+          "username": "userActive2",
+          "email": "userActive2@gmail.com"
+        },
+        "properties": {
+          "beds": 9,
+          "city": "@string@",
+          "image": {
+            "testfile": "@string@"
+          },
+          "price": "@int@",
+          "rooms": "@int@",
+          "title": "@string@",
+          "address": "@string@",
+          "country": "@string@",
+          "surface": "@int@",
+          "legal_id": "@string@",
+          "bath_room": "@int@",
+          "utilities": [
+            "@string@"
+          ],
+          "description": "@string@",
+          "environment": [
+            "@string@"
+          ],
+          "postal_code": "@string@",
+          "estate_category": "@string@"
+        }
+      },
+      "nb_people": 1,
+      "coming_at": "2020-01-10T12:00:00+01:00",
+      "leaving_at": "2020-01-01T12:00:00+01:00",
+      "total_price": 100
+    }
+  }
+}

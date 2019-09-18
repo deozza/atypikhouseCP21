@@ -134,7 +134,7 @@ properties:
       unique: false
       required: false
       greaterThanOrEqual: 0
-      lesserThanOrEqual: 10
+      lessThanOrEqual: 10
 
   
   nb_people:
@@ -168,7 +168,21 @@ properties:
       unique: false
       required: false
       lengthMax: 255
-  
+
+  payed:
+    type: enumeration.boolean
+    constraints:
+      unique: false
+      required: true
+      automatic: false
+
+  canceled:
+    type: enumeration.boolean
+    constraints:
+      unique: false
+      required: true
+      automatic: false
+
   user:
     type: string
     constraints:

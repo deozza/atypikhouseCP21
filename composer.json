@@ -15,7 +15,7 @@
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "4.2.*",
         "symfony/yaml": "4.2.*",
-        "deozza/philarmony-api-tester-bundle": "^3.0",
+        "deozza/philarmony-api-tester-bundle": "^3.1",
         "deozza/philarmony-core-bundle": "dev-atypikhouse",
         "doctrine/doctrine-fixtures-bundle": "^3.1",
         "fzaninotto/faker": "^1.8",
@@ -54,7 +54,9 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "php bin/console p:s:v",
+            "php bin/console p:m:m"
         ],
         "post-update-cmd": [
             "@auto-scripts"
@@ -73,6 +75,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/deozza/PhilarmonyCore"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/deozza/PhilarmonyApiTester"
         }
     ]
 }
