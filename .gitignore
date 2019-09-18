@@ -8,6 +8,7 @@
 /var/log/
 /vendor/
 \.idea/
+/src/Form/Philarmony
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###

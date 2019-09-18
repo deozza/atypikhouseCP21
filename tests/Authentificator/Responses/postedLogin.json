@@ -1,2 +1,4 @@
-{"uuid":"@string@.isUuid()",
-"token":"@string@"}
+{
+  "uuid":"@string@.isUuid()",
+  "token":"@string@"
+}

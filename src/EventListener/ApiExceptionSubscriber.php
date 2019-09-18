@@ -21,6 +21,7 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
 
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
+        /*
         $e = $event->getException();
         $statusCode = $e instanceof HttpExceptionInterface ? $e->getStatusCode() : 500;
 
@@ -31,5 +32,6 @@ class ApiExceptionSubscriber implements EventSubscriberInterface
 
         $response->headers->set('Content-Type', 'application/json');
         $event->setResponse($response);
+        */
     }
 }
