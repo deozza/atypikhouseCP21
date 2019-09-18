@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\CategoryFilter;
-use App\Form\auth\PostCategoryFilterType;
+use App\Form\categoryFilter\PostCategoryFilterType;
 use Deozza\ResponseMakerBundle\Service\ResponseMaker;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\auth;
+namespace App\Form\categoryFilter;
 
 use App\Entity\CategoryFilter;
 use Symfony\Component\Form\AbstractType;
