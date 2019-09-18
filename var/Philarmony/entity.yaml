@@ -205,6 +205,8 @@ entities:
       - leaving_at
       - total_price
       - more
+      - payed
+      - canceled
     states:
       __default:
         methods:
@@ -238,12 +240,17 @@ entities:
                 - owner
                 - estate.owner
               roles:
-                - ROLE_ADMIN 
-          DELETE:
+                - ROLE_ADMIN
+          PATCH:
+            properties:
+              - canceled
             by:
               users:
                 - owner
                 - estate.owner
+              roles:
+                - ROLE_ADMIN
+          DELETE:
               roles:
                 - ROLE_ADMIN
 
