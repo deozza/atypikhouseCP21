@@ -140,7 +140,7 @@ entities:
     properties:
       - estate
       - content
-      - rating 
+      - rating
     states:
       __default:
         methods:
@@ -160,13 +160,13 @@ entities:
         methods:
           GET:
             by: all
-          DELETE:              
+          DELETE:
             by:
               users:
                 - owner
               roles:
                 - ROLE_ADMIN
-          
+
   favorite:
     properties:
       - estate
@@ -187,7 +187,7 @@ entities:
         methods:
           GET:
             by:
-              users: 
+              users:
                 - owner
               roles:
                 - ROLE_ADMIN
@@ -196,7 +196,7 @@ entities:
               users:
                 - owner
               roles:
-                - ROLE_ADMIN 
+                - ROLE_ADMIN
   reservation:
     properties:
       - estate
@@ -251,6 +251,7 @@ entities:
               roles:
                 - ROLE_ADMIN
           DELETE:
+            by:
               roles:
                 - ROLE_ADMIN
 

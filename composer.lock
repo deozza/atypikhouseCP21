@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/deozza/PhilarmonyCore.git",
-                "reference": "28a129ba5aca43f3fb1ae9bf0d91c138c5084825"
+                "reference": "19e7a872f982af2437cee25b342cae54cc1d9e56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/28a129ba5aca43f3fb1ae9bf0d91c138c5084825",
-                "reference": "28a129ba5aca43f3fb1ae9bf0d91c138c5084825",
+                "url": "https://api.github.com/repos/deozza/PhilarmonyCore/zipball/19e7a872f982af2437cee25b342cae54cc1d9e56",
+                "reference": "19e7a872f982af2437cee25b342cae54cc1d9e56",
                 "shasum": ""
             },
             "require": {
@@ -119,7 +119,7 @@
                 "source": "https://github.com/deozza/PhilarmonyCore/tree/atypikhouse",
                 "issues": "https://github.com/deozza/PhilarmonyCore/issues"
             },
-            "time": "2019-08-27T10:03:58+00:00"
+            "time": "2019-09-18T09:00:21+00:00"
         },
         {
             "name": "deozza/philarmony-utils",

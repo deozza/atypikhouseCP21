@@ -3,5 +3,5 @@ philarmony:
     entity: ~
     property: ~
     enumeration: ~
-    formPath: ~
-    formNamespace : ~
+    formPath: /src/Form/Philarmony
+    formNamespace : App\\Form\\Philarmony
