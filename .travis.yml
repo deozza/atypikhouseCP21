@@ -30,9 +30,9 @@ matrix:
 before_install:
   - composer self-update
   - cp .env.dist .env
-  - echo "DATABASE_URL=mysql://root@127.0.0.1:3306/AtypikHouse" >> ./env
-  - echo "MAILER_URL=null://localhost" >> ./env
-  - echo "DB_MANAGER=mysql" >> ./env
+  - echo "DATABASE_URL=mysql://root@127.0.0.1:3306/AtypikHouse" >> .env
+  - echo "MAILER_URL=null://localhost" >> .env
+  - echo "DB_MANAGER=mysql" >> .env
 
 install:
   - export COMPOSER_ROOT_VERSION=dev-master
