@@ -43,7 +43,7 @@ before_script:
   - php bin/console d:d:c --env=test
   - php bin/console d:s:c --env=test
   - php bin/console d:f:l --env=test --append
-  - bin/console p:m:m
+  - php bin/console p:s:v
   - php bin/console p:m:m
 
 script:
