@@ -254,6 +254,24 @@ entities:
             by:
               roles:
                 - ROLE_ADMIN
+      canceled:
+        constraints:
+          manual:
+            by:
+              users:
+                - estate.owner
+                - owner
+              roles:
+                - ROLE_ADMIN
+        methods:
+          GET:
+            by:
+              roles:
+                - ROLE_ADMIN
+          DELETE:
+            by:
+              roles:
+                - ROLE_ADMIN
 
   notification:
     properties:
