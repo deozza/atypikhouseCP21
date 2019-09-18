@@ -221,6 +221,8 @@ entities:
             by:
               roles:
                 - ROLE_USER
+            post_scripts:
+              - postNotificationAfterReservation
       posted:
         constraints:
           properties:
@@ -277,7 +279,6 @@ entities:
     properties:
       - notif_title
       - content
-      - user
     states:
       __default:
         methods:
@@ -285,7 +286,6 @@ entities:
             properties:
               - notif_title
               - content
-              - user
             by:
               roles:
                 - ROLE_ADMIN
@@ -294,7 +294,7 @@ entities:
           GET:
             by:
               users:
-                - user
+                - owner
               roles:
                 - ROLE_ADMIN
           DELETE:
