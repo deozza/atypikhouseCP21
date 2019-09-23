@@ -60,6 +60,10 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "updateConfigScript": [
+            "sh ./updateConfig.sh",
+            "sh ./deploy.sh"
         ]
     },
     "conflict": {
@@ -74,11 +78,8 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/deozza/PhilarmonyCore"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/deozza/PhilarmonyApiTester"
+            "url": "https://github.com/deozza/PhilarmonyCore",
+            "no-api": true
         }
     ]
 }
