@@ -1,5 +1,5 @@
 enumerations:
-    utilities: ['Télévision par câble', 'eau chaude', chauffage, microonde, Bluetooth]
+    utilities: ['Télévision par câble', 'eau chaude', chauffage, microonde, Wi-Fi]
     environment: [restaurants, parking, dancing, 'salle sport']
     estate_category: [nature_vibes, love_vibes, beach_vibes, family_vibes, unique_vibes, food_vibes, treehouse, cabin, chalet, caravan, ecolodge, tiny_house, old_caravan, tent, tepee, yurt, hanging_tent, nest, bubble, dome, igloo, safari, boat, piles_cabin, water_cabin]
     boolean: [true, false]
