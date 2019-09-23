@@ -39,7 +39,6 @@ class MailSender
     private function sendEmail(string $templateName, array $context, string $subject, string $toEmail)
     {
         $message = (new \Swift_Message($subject))
-            ->setFrom('deozza@gmail.com')
             ->setTo($toEmail)
             ->setBody(
                 $this->twig->render($templateName, $context)
