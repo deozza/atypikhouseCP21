@@ -252,17 +252,18 @@ entities:
                 - estate.owner
               roles:
                 - ROLE_ADMIN
+            post_scripts:
+              - postNotificationAfterReservationCancelling
           DELETE:
             by:
               roles:
                 - ROLE_ADMIN
-      canceled:
+      approved:
         constraints:
           manual:
             by:
               users:
                 - estate.owner
-                - owner
               roles:
                 - ROLE_ADMIN
         methods:
