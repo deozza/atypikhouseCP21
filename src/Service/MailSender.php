@@ -38,12 +38,24 @@ class MailSender
 
     private function sendEmail(string $templateName, array $context, string $subject, string $toEmail)
     {
+
+        $template = $this->twig->loadTemplate($templateName);
+        $subject = $template->renderBlock('subject', ['subject'=>$subject]);
+        $textBody = $template->renderBlock('body_text', $context);
+        $htmlBody = $template->renderBlock('html_text', $context);
         $message = (new \Swift_Message($subject))
             ->setFrom('no-reply@atypik.house')
             ->setTo($toEmail)
-            ->setBody(
-                $this->twig->render($templateName, $context)
-            );
+            ;
+
+        if(!empty($htmlBody))
+        {
+            $message->setBody($htmlBody, 'text/html')->addPart($textBody, 'text/plain');
+        }
+        else
+        {
+            $message->setBody($textBody);
+        }
 
         $this->mailer->send($message);
     }
